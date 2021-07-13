@@ -1,0 +1,44 @@
+@charset "UTF-8";
+    
+        
+        /* 전체 수정부분 */
+        li{list-style: none;}
+        a:link {color : pink;}
+        a:visited {color : black;}        
+        a:active {color : black;}
+        main{padding-top: 100px; display: flex;background-color: wwhite; justify-content: center;}
+        
+        
+        /* 네비바 */
+        #navbrand {padding-left: 30px; width: 135px; }
+        #navbrand > i {font-size: 25px;color: blueviolet;}
+        #nav-icon{font-size: 20px;}
+        #nav-icon a{padding-right: 10px; padding-left: 5px;}
+        #navbar_item > li{ padding-left: 25px;}
+        #menubars{font-size: 22px;}
+
+        /* 어사이드 */
+        aside {display: none;}
+        aside > ul{  width: 150px;}
+        #aside{margin: 0px; padding-left: 15px; width: 150px;}
+        #aside > li{text-align: center;}        
+        .navbar-nav li{font-size: 22px;}
+       
+        /* 메인css직접설정 */
+        #section {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: white;
+        width: 100%;
+        justify-content: center;
+        }
+        #section > ul {        
+        background-color: #f1f1f1;
+        width: 400px;
+        height: 250px;
+        margin: 8px 12px;
+        text-align: center;
+        line-height: 25px;
+        font-size: 10px;                
+        }
+        #section > ul > li{font-size: 12px;}
