@@ -13,8 +13,7 @@
                 <li>코딩</li>
                 <li>영화</li>
                 <li>만화</li>
-                <li>음악</li>
-                <li>생일</li>
+                <li>음악</li>   
 
             </ul>
         </aside>  

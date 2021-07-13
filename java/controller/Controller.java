@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import boards.BoardsDAO;
 import login.LoginDAO;
 
 @WebServlet("/")
 public class Controller extends HttpServlet{
 @Override
 protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	String boards_list="객체";
 	
 	/*  //로그인 세션을 확인하는 부분.
 	if(request.getSession().getAttribute("id")==null) {
@@ -30,6 +33,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 	//page 초기화
 	String page="";
 	
+	
 	if(urls.length<2) {
 		page="view/";
 		page+="section.jsp";
@@ -39,10 +43,19 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 		System.out.println("index들어옴");
 			page="view/";
 			page+="section.jsp";
+			BoardsDAO bd =new BoardsDAO();
+			List list = bd.getlist();			
+			request.setAttribute("boards",list);
+
 		}else if(urls[1].trim().equals("board")) {
 		//인덱스에서의 웹 url은 실질적으로 /WEB-INF/board/section.jsp
 			page="board/";
 			page+="board.jsp";
+			
+			BoardsDAO bd =new BoardsDAO();
+			List list = bd.getlist();			
+			request.setAttribute("boards",list);
+
 		}else if(urls[1].trim().equals("login")) {
 			
 			
@@ -51,7 +64,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 				page="/login/";
 				page+="login.jsp";
 			}else if(urls[2].equals("login.do")) {
-				/*로그인처리 프로세스*/				
+				/*로그인처리 프로세스*/	
 					LoginDAO logindao=new LoginDAO();
 					int result=logindao.loginCheck
 					(request.getParameter("id"), request.getParameter("password"));

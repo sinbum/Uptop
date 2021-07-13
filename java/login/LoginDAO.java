@@ -11,8 +11,8 @@ public class LoginDAO {
 	public LoginDAO() {
 		//ID, PASSWORD NULL OR "" 를 확인해하는 사항이 있어야함.-생략
 		String dburl="jdbc:oracle:thin:@localhost:1521:xe";
-		String dbuser="user1";
-		String dbpassword="1111";
+		String dbuser="uptopadmin";
+		String dbpassword="3419";
 		try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn=DriverManager.getConnection(dburl,dbuser,dbpassword);
