@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import boards.BoardsDAO;
+import boards.BoardsVO;
 import login.LoginDAO;
 
 @WebServlet("/")
@@ -44,7 +46,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 			page="view/";
 			page+="section.jsp";
 			BoardsDAO bd =new BoardsDAO();
-			List list = bd.getlist();			
+			List<BoardsVO> list = bd.getlist();			
 			request.setAttribute("boards",list);
 
 		}else if(urls[1].trim().equals("board")) {
@@ -53,7 +55,8 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 			page+="board.jsp";
 			
 			BoardsDAO bd =new BoardsDAO();
-			List list = bd.getlist();			
+			List<BoardsVO> list = bd.getlist();
+			System.out.println(list.get(0).getBoards_content());
 			request.setAttribute("boards",list);
 
 		}else if(urls[1].trim().equals("login")) {
