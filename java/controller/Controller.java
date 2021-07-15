@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -64,7 +63,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 			
 		//인덱스에서의 웹 url은 실질적으로 /WEB-INF/login/section.jsp
 			if(urls.length<3) {				
-				page="/login/";
+				page="login/";
 				page+="login.jsp";
 			}else if(urls[2].equals("login.do")) {
 				/*로그인처리 프로세스*/	
@@ -73,20 +72,36 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 					(request.getParameter("id"), request.getParameter("password"));
 				/*데이터베이스 접속후 값이 동일하면 1을 반환 하여 1값일 경우 로그인 된것으로 확인하고 세션속성의 id값을 현재 id로 설정.*/
 					if(result==1) {
+						System.out.println("로그인성공");
 						request.getSession().setAttribute("id", request.getParameter("id"));
+						System.out.println("login.do 실행 page uri값을 출력 : " + page) ;
+						response.sendRedirect("/index");
+						return ;
+					}else{
+						System.out.println("로그인실패 값이 확인되지 않음.");
+						request.setAttribute("logincheck","fail");
+						page="login/";
+						page+="loginfail.jsp";
+						System.out.println("login.do 실행 page uri값을 출력 : " + page) ;												
 					}
-					page="view/";
-					page+="section.jsp";
-					System.out.println("login.do 실행 page uri값을 출력 : " + page) ;
+					
 			}else if(urls[2].equals("logout")) {
 					request.getSession().invalidate();
 					page="view/";
 					page+="section.jsp";
 			}
+		}else if(urls[1].trim().equals("write")) {
+			System.out.println("write접근");
+			page="write/";
+			page+="section.jsp";
+		}else if(urls[1].trim().equals("signin")) {
+			System.out.println("signin접근");
+			page="signin/";
+			page+="signin.jsp";
 		}
 	System.out.println("디스패쳐 실행");
 	System.out.println("reqeust를 설정하기전 uri확인 page값을 출력 : " + page) ;
-	request.setAttribute("section", page);
+	request.setAttribute("section",page);
 	request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	
 }	

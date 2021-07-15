@@ -13,12 +13,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto " id="navbar_item">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">홈 <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#">홈<span class="sr-only">(current)</span></a>
                 </li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="#">링크</a>
-                </li>
+				<c:if test="${not empty id}">            
+	                <li class="nav-item">
+	                  <a class="nav-link" href="/write">글작성</a>
+	                </li> 	            	
+ 	            </c:if>  
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">카테고리</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,11 +42,11 @@
                     <a class="dropdown-item" href="#">더보기</a>
                   </div>
                 </li>                
-            </ul>            
+            </ul>
             <ul class="navbar-nav mr-auto " id="navbar_item">
             
-                                     <!-- 게시글 추가 버튼 소스 -->
-                <!--  <li class="nav-item"><a class=" text-dark " href="#"><em class="fas fa-plus"></em></a></li>      --> 
+                
+                 
                    
                 <!-- 세션 아이디 값이 없을 경우 기본 로그인창으로 이동. --> 	
 				<c:if test="${empty id}">
@@ -61,18 +63,18 @@
 	                      <a class="dropdown-item" href="#">고객센터</a>
 	                    </div>
                	</li>            				    				
+               	
 				</c:if>	            
                   
             
-            <li class="nav-item ">
-
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </li>
+	            <li class="nav-item ">
+	
+	                <form class="form-inline my-2 my-lg-0">
+	                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	                </form>
+	            </li>
             </ul>
-
-              
+				         
             </div>
           </nav>

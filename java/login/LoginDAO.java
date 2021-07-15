@@ -36,10 +36,10 @@ public class LoginDAO {
 		try {
 		sql="select * from member where id=? and password=?";
 		psmt=conn.prepareStatement(sql);
-		psmt.setString(1, id);
+		psmt.setString(1, id);		
 		psmt.setString(2, password);
 		rs=psmt.executeQuery();
-
+		
 		if(rs.next()){
 			result=1;
 		}else{
@@ -48,6 +48,7 @@ public class LoginDAO {
 		rs.close();
 		psmt.close();
 		conn.close();
+		
 		
 		return result;
 		}catch(Exception e) {

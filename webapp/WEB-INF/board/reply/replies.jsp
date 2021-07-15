@@ -20,25 +20,26 @@
             </ul>
             
         </ul>        
-        <hr>       
-        <ul>
-            <ul style="display: flex;">
-                <li >이미지</li>                
-                <ul>
-                    <ul style="display: flex;">
-                        <li>댓글작성자</li>
-                        <li>2일전</li>
-                    </ul>
-                    <li>댓글내용</li>
-                    <ul style="display: flex;">
-                        <li>좋아요</li>
-                        <li>싫어요</li>
-                        <li>답글달기</li>
-                    </ul>
-                    <li>답글 ?개 보기</li>
-                    
-                </ul>                                
-            </ul>           
+        <hr>              
+        <ul style="display: flex;">            
+        	<li >이미지</li>
+        	<li>              
+	            <ul>
+	                <ul style="display: flex;">
+	                    <li>댓글작성자</li>
+	                    <li>2일전</li>
+	                </ul>
+	                <li>댓글내용</li>
+	                <ul style="display: flex;">
+	                    <li>좋아요</li>
+	                    <li>싫어요</li>
+	                    <li>답글달기</li>
+	                </ul>
+	                <li>답글 ?개 보기</li>
+	                
+	                                           
+	        	</ul>
+        	</li>           
         </ul>                
     </div>
 </ul>
