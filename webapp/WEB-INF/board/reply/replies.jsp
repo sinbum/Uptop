@@ -14,9 +14,8 @@
 	<div>
         <ul style="display: flex;">
             <li>pimg</li>
-            <ul>
-                <li><input type="text" name="" id="" placeholder="댓글입력"></li>
-                <li></li>
+            <ul style="width:100%;">
+            <form action="/board/comment/insert"><li><input type="text" name="" id="" placeholder="댓글입력" style="width:80%;"><input type="submit"></li></form>
             </ul>
             
         </ul>        

@@ -15,14 +15,13 @@
         #navbrand > i {font-size: 25px;color: blueviolet;}
         #nav-icon{font-size: 20px;}
         #nav-icon a{padding-right: 10px; padding-left: 5px;}
-        #navbar_item > li{ padding-left: 25px;}
+        #navbar_item > li{ padding-left: 25px; }
         #menubars{font-size: 22px;}
 
         /* 어사이드 */
-        aside {display: none;}
-        aside > ul{  width: 150px;}
-        #aside{margin: 0px; padding-left: 15px; width: 150px;}
-        #aside > li{text-align: center;}        
+    	#aside{margin: 0px; padding-left: 15px; width: 100%;display:none;}
+        #aside > ul{display:flex; width: 100%;}
+        #aside > ul > li{text-align: center;width:100px;}      
         .navbar-nav li{font-size: 22px;}
        
         /* 메인css직접설정 */
@@ -72,4 +71,35 @@
 	      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 	    }
+	    
+	    
+	    
+	    /*카테고리 css정보  */
+	      .swiper-container {
+        width: 100%;
+      }
+      .swiper-slide {
+        height: 50px;
+        background: #882525;
+        line-height: 50px;
+        text-align: center;
+      }
+      .swiper-slide:nth-child(2) {
+        background: #8acc7d;
+      }
+      .swiper-slide:nth-child(3) {
+        background: #b7cc7d;
+      }
+      .swiper-slide:nth-child(4) {
+        background: #9eb75c;
+      }
+      .swiper-slide:nth-child(5) {
+        background: #7da8cc;
+      }
+      .swiper-slide:nth-child(6) {
+        background: #96cc7d;
+      }
+      .swiper-slide:nth-child(7) {
+        background: #cc7dae;
+      }
         

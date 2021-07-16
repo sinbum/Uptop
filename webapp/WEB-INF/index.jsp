@@ -17,10 +17,16 @@
    <!-- 현재 폴더의 css폴더를 불러옴. -->
    <link rel="stylesheet" href="/css/style.css">
    <!-- 현재 폴더의 자바스크립트 폴더를 불러옴. -->
-   <script type="text/javascript" src="/js/script.js"></script>
+  <script type="text/javascript" src="/js/script.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  
+   
+  
 </head>
 <body>    
     <header>
