@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.myweb</groupId>
+  <artifactId>UpTopProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+<build>
+    <plugins>
+      <plugin>
+      <!-- WAR기반으로 작성시 에러나 인식이 안되는 경우 아래와 같이
+      GROUP 아이디와 버전을 변경하도록한다.
+       -->
+      <!-- <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version> -->
+         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+        <!-- 자바 개발자버전을 인식못하는 경우 아래와 같이 PROPERTIES를 직접 설정해주도록한다. -->
+           <!--  <source>1.8</source>
+           <target>1.8</target> -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  
+        <!-- 자바 개발자버전을 인식못하는 경우 아래와 같이 PROPERTIES를 직접 설정해주도록한다. -->
+   <properties>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties> 
+  
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+	<!-- <dependency>
+	    <groupId>com.oracle.database.jdbc</groupId>
+	    <artifactId>ojdbc8</artifactId>
+	    <version>21.1.0.0</version>
+	</dependency> -->
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>	
+	<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
+<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc6</artifactId>
+    <version>11.2.0.4</version>
+</dependency>
+
+
+	
+	
+  </dependencies> 
+</project>
+
+
+
+
+
+
