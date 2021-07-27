@@ -25,7 +25,7 @@ public class BoardsDAO {
 			// JDBC Driver 로딩
 			Class.forName(driver);
 			// Connection 객체 생성 / DB 연결(접속)
-			conn = DriverManager.getConnection(url,"uptopadmin","3419");
+			conn = DriverManager.getConnection(url,"system","3419");
 		
 			if(conn==null) {
 				System.out.println("db접속실패");
