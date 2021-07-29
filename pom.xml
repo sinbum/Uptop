@@ -26,6 +26,12 @@
   </properties>
   
   <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-api -->
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-api</artifactId>
+    <version>9.0.48</version>
+</dependency>
 	 <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
