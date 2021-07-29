@@ -27,13 +27,13 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-custom-font u-text u-text-default u-text-palette-3-base u-text-1">우리 <font class="u-text-black">는</font>
         </h1>
-        <p class="u-text u-text-2">If you’re an adventurer who loves being out in nature, a hiking and trekking tour should be next on your list. You can expect great wildlife photography opportunities and the chance to travel with a group of like-minded individuals who love the great outdoors.</p>
+        <p class="u-text u-text-2">다양하고 새로운 관점을 지향 합니다. 실생활에서 나오는 불편함과 문제점을 인식하고 그것을 해결하여 사용자에게 더 편안한 경험을 제공할 수 있도록 노력할 것입니다. 그에 기반한 UpTop은 사람과 사람의 간단한 소통의 커뮤니티 장소를 제공하며 여러 주제를 기반으로한 투표기능을 제공해 선택과 재미를 선사합니다. 앞으로 더욱 가치있는 UpTop을 만나보세요.</p>
         <img src="images/9147ba133549eafc19f42498e63e2028c40908885a0d9d0c6d81d6356df87e6d8ca5b8bbfef1e4a53de3e7fc874001ccacf858a9a5d5a17f78e197_1280.jpg" alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1280" data-image-height="831">
-        <h3 class="u-custom-font u-text u-text-body-alt-color u-text-3">Best places to hike and trek in the world.</h3>
+        <h3 class="u-custom-font u-text u-text-body-alt-color u-text-3">Best places to talk with your around in the world with UpTop</h3>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-section-2" id="carousel_1439">
-      <h2 class="u-text u-text-1">Best places to hike and trek in the world.</h2>
+      <h2 class="u-text u-text-1">Best places to talk with your around in the world with UpTop.</h2>
       <p class="u-text u-text-2">If you’re an adventurer who loves being out in nature, a hiking and trekking tour should be next on your list. You can expect great wildlife photography opportunities and the chance to travel with a group of like-minded individuals who love the great outdoors.</p>
       <div class="u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
       <div class="u-list u-list-1">
