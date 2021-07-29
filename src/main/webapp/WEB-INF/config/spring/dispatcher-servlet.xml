@@ -33,12 +33,12 @@
 <property name="suffix" value=".jsp"/>
 </bean>
 
-<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!-- <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 <property name="username" value="system"/>
 <property name="password" value="3419"/>
-</bean>
+</bean> -->
 
 
 <mvc:resources mapping="/**" location="/resources/"></mvc:resources> 
