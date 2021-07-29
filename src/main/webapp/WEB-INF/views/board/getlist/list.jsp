@@ -14,12 +14,12 @@
           <h3 style="text-align: left;">
             <span style="line-height: 2.0;">글제목 (보드글)</span>
           </h3>
-          <h6 style="text-align: left;">조회수: &nbsp; &nbsp; &nbsp; &nbsp;등록날짜: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;작성자: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;분류: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h6>
+          <h6 style="text-align: left;">조회수: &nbsp; &nbsp; 등록날짜: &nbsp; &nbsp; &nbsp;작성자: &nbsp; &nbsp; &nbsp; 분류: &nbsp; &nbsp; &nbsp; </h6>
           <p>더보기</p>
         </div>
       </div>
-    </section>
-    
+      <hr>
+   
 
     
     
