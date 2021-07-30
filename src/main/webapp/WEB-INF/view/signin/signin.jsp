@@ -8,7 +8,7 @@
 	location.href='/login';
 </script>
 </c:if>
-<c:if test="${result ne '1'}">
+<c:if test="${result eq '0'}">
 <script>
 	alert("회원가입 처리도중 오류가 발생하였습니다.");	
 </script>
