@@ -29,13 +29,13 @@
 <body>    
     <header>
       <!-- 구조화 된 네비게이션 바 부분을 jsp로 로드함. -->
-        <jsp:include page="/WEB-INF/view/nav.jsp"></jsp:include>           
+        <jsp:include page="/WEB-INF/nav/nav.jsp"></jsp:include>           
     </header>
     <main>  
     	<!--aside 부분  -->   
-        <jsp:include page="/WEB-INF/view/aside.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/aside/aside.jsp"></jsp:include>
         <!--section 부분  -->
-        <jsp:include page="/WEB-INF/${section}"></jsp:include> 
+         <jsp:include page="/WEB-INF/view/${main}"></jsp:include> 
 		     
     </main>
     
