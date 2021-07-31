@@ -1,50 +1,38 @@
 package vo;
 
 public class TotalBoardVO {
-BoardsVO boardsvo;
+BoardVO boardvo;
 BoardDetailVO boarddetail;
 BoardChannelVO boardchannel;
 
-public TotalBoardVO() {
+public BoardVO getBoardvo() {
+	return boardvo;
 }
-
-public BoardsVO getBoardsvo() {
-	return boardsvo;
+public void setBoardvo(BoardVO boardvo) {
+	this.boardvo = boardvo;
 }
-
-public void setBoardsvo(BoardsVO boardsvo) {
-	this.boardsvo = boardsvo;
-}
-
 public BoardDetailVO getBoarddetail() {
 	return boarddetail;
 }
-
 public void setBoarddetail(BoardDetailVO boarddetail) {
 	this.boarddetail = boarddetail;
 }
-
 public BoardChannelVO getBoardchannel() {
 	return boardchannel;
 }
-
 public void setBoardchannel(BoardChannelVO boardchannel) {
 	this.boardchannel = boardchannel;
 }
-
 @Override
 public String toString() {
-	return "TotalBoardVO [boardsvo=" + boardsvo + ", boarddetail=" + boarddetail + ", boardchannel=" + boardchannel
-			+ "]";
+	return "TotalBoardVO [boardvo=" + boardvo + ", boarddetail=" + boarddetail + ", boardchannel=" + boardchannel + "]";
 }
-
-public TotalBoardVO(BoardsVO boards, BoardDetailVO boarddetail, BoardChannelVO boardchannel) {
+public TotalBoardVO(BoardVO boardvo, BoardDetailVO boarddetail, BoardChannelVO boardchannel) {
 	super();
-	this.boardsvo = boards;
+	this.boardvo = boardvo;
 	this.boarddetail = boarddetail;
 	this.boardchannel = boardchannel;
 }
-
 
 
 
