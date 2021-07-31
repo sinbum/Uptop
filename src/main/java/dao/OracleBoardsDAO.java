@@ -17,7 +17,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import vo.BoardDetailVO;
-import vo.BoardsVO;
+import vo.BoardVO;
 import vo.TotalBoardVO;
 
 @Repository
@@ -56,10 +56,10 @@ public class OracleBoardsDAO implements BoardDAO{
 				int channel_num_fk		= rs.getInt(5);
 				BoardDetailVO boarddetail=getboarddetail(boards_num);
 				
-				BoardsVO boardsvo=
-						new BoardsVO(boards_num,boards_name,boards_content,boards_date,channel_num_fk);
+				BoardVO boardsvo=
+						new BoardVO(boards_num,boards_name,boards_content,boards_date,channel_num_fk);
 				
-				TotalBoardVO tb= new TotalBoardVO(boardsvo,boarddetail);
+				TotalBoardVO tb=new TotalBoardVO(boardvo,boarddetail,);
 				list.add(tb);
 			}
 			
@@ -76,8 +76,8 @@ public class OracleBoardsDAO implements BoardDAO{
 	}
 	
 	
-	public List <BoardsVO> getlist() {
-		ArrayList<BoardsVO> list= new ArrayList<BoardsVO>();
+	public List <BoardVO> getlist() {
+		ArrayList<BoardVO> list= new ArrayList<BoardVO>();
 		String sql="select * from board";
 		try {
 			PreparedStatement pstmt= ds.getConnection().prepareStatement(sql);
@@ -98,8 +98,8 @@ public class OracleBoardsDAO implements BoardDAO{
 				Date boards_date		= rs.getDate(4);
 				int channel_num_fk		= rs.getInt(5);
 				
-				BoardsVO boardsvo=
-						new BoardsVO(boards_num,boards_name,boards_content,boards_date,channel_num_fk);
+				BoardVO boardsvo=
+						new BoardVO(boards_num,boards_name,boards_content,boards_date,channel_num_fk);
 
 				list.add(boardsvo);
 			}
@@ -117,8 +117,8 @@ public class OracleBoardsDAO implements BoardDAO{
 		return list;
 		
 	}
-	public BoardsVO getboardvo(int num) {
-		BoardsVO boardsvo =null;		
+	public BoardVO getboardvo(int num) {
+		BoardVO boardsvo =null;		
 		String sql="select * from board where board_num=?";
 		try {
 			PreparedStatement pstmt= ds.getConnection().prepareStatement(sql);
@@ -141,7 +141,7 @@ public class OracleBoardsDAO implements BoardDAO{
 				int channel_num_fk		= rs.getInt(5);
 				
 				boardsvo=
-						new BoardsVO(boards_num,boards_name,boards_content,boards_date,channel_num_fk);
+						new BoardVO(boards_num,boards_name,boards_content,boards_date,channel_num_fk);
 
 			}
 			
@@ -189,12 +189,6 @@ public class OracleBoardsDAO implements BoardDAO{
 		
 	}
 	
-	public TotalBoardVO getTotalboard(String parameter) {		
-		BoardsVO bv = getboardvo(Integer.parseInt(parameter));
-		BoardDetailVO bd=getboarddetail(Integer.parseInt(parameter));
-		TotalBoardVO tb= new TotalBoardVO(bv,bd);
-		return tb;
-	}
 	
 	
 	
@@ -265,6 +259,11 @@ public class OracleBoardsDAO implements BoardDAO{
 		
 		
 		return result;
+		}
+		@Override
+		public TotalBoardVO getTotalboard(String parameter) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 		
 		
