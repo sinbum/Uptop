@@ -2,22 +2,23 @@ package controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import service.Service;
-import vo.TotalBoardVO;
+import service.MainService;
+import vo.BoardVO;
 
 @Controller
 public class MainController {
 	
 	ModelAndView mv;
-	Service service;
+	
+	@Autowired
+	MainService service;
 	
 	public MainController() {
 		mv= new ModelAndView();
@@ -25,11 +26,10 @@ public class MainController {
 	
 	@RequestMapping("/index")
 	public ModelAndView index() {
-//		System.out.println("idnex경로들어옴");
-		service = new Service();
+//		System.out.println("idnex경로들어옴");	
 
-		List<TotalBoardVO> boardslist =service.getboardslist();
-		System.out.println("인덱스컨트롤러에서"+boardslist.get(0).getBoardsvo().getBoards_date());
+		List<BoardVO> boardslist =service.selectBoardList(1,10);
+		
 		mv.addObject("boardslist",boardslist);
 		mv.addObject("main","main.jsp");	
 		mv.setViewName("/WEB-INF/mainpage.jsp");
