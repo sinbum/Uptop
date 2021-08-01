@@ -2,8 +2,7 @@ package service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +13,24 @@ import vo.BoardVO;
 @Qualifier("bs")
 public class BoardServiceImple implements BoardService{
 
-	@Inject
+	@Autowired
 	private BoardMapper mapper;
 	
 	@Override
 	public List<BoardVO> viewAll() {
-		// TODO Auto-generated method stub
 		return mapper.viewAll();
 	}
+
+	@Override
+	public List<BoardVO> selectBoardList(int startIndex, int pageSize) {
+		return null;
+	}
+
+	@Override
+	public int selectBoardListCnt(BoardVO boardVO) {
+		return 0;
+	}
+	
+	
 
 }

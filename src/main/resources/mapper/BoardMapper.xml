@@ -6,4 +6,8 @@
 	SELECT * FROM board
 	</select>
 	
+	<select id="selectBoardList">
+	
+	</select>
+	
 </mapper>

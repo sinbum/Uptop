@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import service.BoardServiceImple;
 import service.MainService;
+import service.MainServiceImple;
 import vo.BoardVO;
 
 @Controller
@@ -17,19 +19,20 @@ public class MainController {
 	
 	ModelAndView mv;
 	
-	//@Autowired
-	MainService service;
+	@Autowired
+	MainServiceImple mainservice;
+	
+	@Autowired
+	BoardServiceImple boardservice;
 	
 	public MainController() {
 		mv= new ModelAndView();
-		service= new MainService();
 	}
 	
 	@RequestMapping("/index")
 	public ModelAndView index() {
-//		System.out.println("idnex경로들어옴");	
 
-		List<BoardVO> boardslist =service.selectBoardList(1,10);
+		List<BoardVO> boardslist =boardservice.selectBoardList(1,10);
 		
 		mv.addObject("boardslist",boardslist);
 		mv.addObject("main","maintest2.jsp");
@@ -45,18 +48,9 @@ public class MainController {
 		return mv;
 	}
 	
-	@RequestMapping("/login/logout")
-	public ModelAndView logout(HttpServletRequest request) {
-		request.getSession().setAttribute("id",null);
-		mv.addObject("main","main.jsp");		
-		mv.setViewName("/WEB-INF/mainpage.jsp");
-		return mv;
-	}
-	
 	@RequestMapping("/login/login.do")
 	public ModelAndView logindo(String id,String password,HttpServletRequest request) {
-		
-		if(service.logincheck(id,password)==1) {
+		if(mainservice.loginCheck(id,password)==1) {
 			//로그인성공
 			request.getSession().setAttribute("id", id);
 			mv.addObject("main","main.jsp");
@@ -69,6 +63,15 @@ public class MainController {
 		return mv;
 	}
 	
+	@RequestMapping("/login/logout")
+	public ModelAndView logout(HttpServletRequest request) {
+		request.getSession().setAttribute("id",null);
+		mv.addObject("main","main.jsp");		
+		mv.setViewName("/WEB-INF/mainpage.jsp");
+		return mv;
+	}
+	
+	
 	@RequestMapping("/signin")
 	public ModelAndView signin() {		
 		mv.addObject("main","signin/signin.jsp");	
@@ -80,7 +83,7 @@ public class MainController {
 	public ModelAndView signindo(String id,String password,String email) {
 		
 		//가입결과 값 반환.
-		int result = service.signin(id,password,email);
+		int result = mainservice.signIn(id,password,email);
 		mv.addObject("result",String.valueOf(result));
 		mv.addObject("main","signin/signin.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
@@ -106,7 +109,7 @@ public class MainController {
 	public ModelAndView makechanneldo(String channel_name,String channel_info,String channel_category,HttpServletRequest request){
 		String sessionId=(String)request.getSession().getAttribute("id");
 		
-		int result = service.makechannel();
+		int result = mainservice.makeChannel();
 		mv.addObject("result",result);
 		
 		mv.addObject("main","channel/makechanneldo.jsp");

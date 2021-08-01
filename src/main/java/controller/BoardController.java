@@ -11,14 +11,15 @@ import org.springframework.web.servlet.ModelAndView;
 import paging.Pagination;
 import service.BoardService;
 import service.MainService;
+import service.MainServiceImple;
 import vo.BoardVO;
 
 @Controller
 @RequestMapping(value="/board/")
 public class BoardController {
 	
-	//@Autowired
-	MainService service;
+	@Autowired
+	MainServiceImple service;
 	
 	@Autowired
 	@Qualifier("bs")
@@ -27,15 +28,14 @@ public class BoardController {
     @RequestMapping(value="getlist")
     public ModelAndView boardList(@RequestParam(defaultValue="1") int requestpagenum){ 
     	
-    	service = new MainService();
     			
-    	ModelAndView mv = new ModelAndView(); 
+    	ModelAndView mv = new ModelAndView();
         // 전체리스트 개수 
         int listCnt = 203/*sql에서 가져온 count값 (게시물 총 개수)*/;
                 
         Pagination pagination = new Pagination(listCnt, requestpagenum);
                 // 전체리스트 출력        
-        List<BoardVO> list = service.selectBoardList(pagination.getStartIndex(),pagination.getPageSize());
+        List<BoardVO> list = boardService.selectBoardList(pagination.getStartIndex(),pagination.getPageSize());
         
         //System.out.println(list);
         mv.addObject("boardslist",list);

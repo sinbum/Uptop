@@ -6,4 +6,6 @@ import vo.BoardVO;
 
 public interface BoardMapper {
  public List <BoardVO> viewAll();
+ public List <BoardVO> selectBoardList(int startIndex, int pageSize);
+ public int selectBoardListCnt(BoardVO boardVO);
 }
