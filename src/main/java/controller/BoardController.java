@@ -3,11 +3,13 @@ package controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import paging.Pagination;
+import service.BoardService;
 import service.MainService;
 import vo.BoardVO;
 
@@ -15,12 +17,18 @@ import vo.BoardVO;
 @RequestMapping(value="/board/")
 public class BoardController {
 	
-	@Autowired
+	//@Autowired
 	MainService service;
+	
+	@Autowired
+	@Qualifier("bs")
+	BoardService boardService;
   
     @RequestMapping(value="getlist")
     public ModelAndView boardList(@RequestParam(defaultValue="1") int requestpagenum){ 
     	
+    	service = new MainService();
+    			
     	ModelAndView mv = new ModelAndView(); 
         // 전체리스트 개수 
         int listCnt = 203/*sql에서 가져온 count값 (게시물 총 개수)*/;
@@ -39,5 +47,20 @@ public class BoardController {
         
         return mv;
     }
+    
+    @RequestMapping("test")
+    public ModelAndView test() {
+    	ModelAndView mv = new ModelAndView();
+    	mv.addObject("boardslist",boardService.viewAll());
+       
+    	
+    	mv.addObject("main","maintest2.jsp");    	
+       mv.setViewName("/WEB-INF/mainpage.jsp");    	
+    	
+		return mv;    	
+    	
+    }
+    
+    
     
 }

@@ -17,11 +17,12 @@ public class MainController {
 	
 	ModelAndView mv;
 	
-	@Autowired
+	//@Autowired
 	MainService service;
 	
 	public MainController() {
 		mv= new ModelAndView();
+		service= new MainService();
 	}
 	
 	@RequestMapping("/index")
@@ -31,7 +32,7 @@ public class MainController {
 		List<BoardVO> boardslist =service.selectBoardList(1,10);
 		
 		mv.addObject("boardslist",boardslist);
-		mv.addObject("main","main.jsp");	
+		mv.addObject("main","maintest2.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
 	}
