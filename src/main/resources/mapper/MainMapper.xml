@@ -9,7 +9,7 @@
 	
 	<!-- 회원가입 SQL 문 삽입.  -->
 	<insert id="signIn">
-	insert into member values(#{id},#{password},#{email});
+	insert into member values(member_num_seq.nextval,#{id},#{password},#{email})
 	</insert>
 	
 	
