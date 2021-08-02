@@ -12,5 +12,18 @@
 	insert into member values(member_num_seq.nextval,#{id},#{password},#{email})
 	</insert>
 	
+	<!-- 채널 만들기 SQL 문 삽입. -->
+	<insert id="makeChannel">
+	insert into channel values(channel_num_seq.nextval,#{channel_name},#{channel_info},#{channel_category},sysdate,#{member_id_fk})
+	</insert>
+	
+	<!-- 게시판 생성 SQL 문 삽입 -->	
+	<insert id="makeBoardDo">
+	insert into board values(board_num_seq.nextval,#{board_firstkeyword},#{board_secondkeyword},#{board_name},#{board_content},sysdate,#{channel_num})	
+	</insert>
+	
+	<select id="getChannelList" resultType="vo.BoardChannelVO">
+	select * from channel where member_id_fk = #{memberId}
+	</select>
 	
 </mapper>
