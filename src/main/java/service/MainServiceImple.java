@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import config.mapper.MainMapper;
 import vo.BoardChannelVO;
+import vo.BoardVO;
+import vo.MemberVO;
 
 
 @Service
@@ -40,8 +42,8 @@ public class MainServiceImple implements MainService{
 					String board_secondkeyword,
 					String board_name,
 					String board_content,
-					int channel_num) {
-		return mainmapper.makeBoardDo(board_firstkeyword, board_secondkeyword, board_name, board_content, channel_num);
+					int channel_num, String member_id_fk) {
+		return mainmapper.makeBoardDo(board_firstkeyword, board_secondkeyword, board_name, board_content, channel_num,member_id_fk);
 			}
 	
 	@Override
@@ -49,6 +51,17 @@ public class MainServiceImple implements MainService{
 
 		return mainmapper.getChannelList(memberId);
 	}
+
+	public MemberVO getMemberDetail(String sessionId) {
+		
+		return mainmapper.getMemberDetail(sessionId);
+	}
+
+	public List <BoardVO> getBoardlist(String sessionId) {
+		
+		return mainmapper.getBoardlist(sessionId);
+	}
+
 
 	
 

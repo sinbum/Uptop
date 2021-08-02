@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import vo.BoardChannelVO;
+import vo.BoardVO;
+import vo.MemberVO;
 
 public interface MainService {
 	
@@ -25,11 +27,18 @@ public interface MainService {
 			@Param("board_secondkeyword")String board_secondkeyword,
 			@Param("board_name")String board_name,
 			@Param("board_content")String board_content,
-			@Param("channel_num")int channel_num			
+			@Param("channel_num")int channel_num,
+			@Param("member_id_fk")String member_id_fk
 			);	
 	
 	
 	public List<BoardChannelVO> getChannelList(@Param("memberId") String memberId);
+	
+	public MemberVO getMemberDetail(String sessionId);
+	
+	public List<BoardVO> getBoardlist(String sessionId);
 
+
+	
 
 }

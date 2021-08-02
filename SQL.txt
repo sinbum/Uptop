@@ -51,6 +51,9 @@ start with 1
 INCREMENT by 1;
 
 insert into channel values(channel_num_seq.nextval,'채널 이름','채널소개','채널 분류',sysdate,'csbzero1');
+insert into channel values(channel_num_seq.nextval,'채널 이름2','채널소개2','채널 분류2',sysdate,'csbzero1');
+insert into channel values(channel_num_seq.nextval,'채널 이름3','채널소개3','채널 분류3',sysdate,'csbzero1');
+
 
 --현재 등록된 모든 채널
 select * from channel;
@@ -67,7 +70,8 @@ BOARD_SECONDKEYWORD varchar2(50) not null,
 BOARD_NAME VARCHAR2(50) NOT NULL,
 BOARD_CONTENT VARCHAR2(1000),
 BOARD_DATE DATE,
-channel_num int constraint channel_num_fk references channel(channel_num)
+channel_num int constraint channel_num_fk references channel(channel_num),
+member_id_fk varchar(50) references member(id)
 );
 
 
@@ -76,15 +80,15 @@ create sequence board_num_seq
 start with 1
 INCREMENT by 1;
 
-insert into board values(board_num_seq.nextval,'첫번째키워드','두번째키워드','제목','내용',sysdate,1);
-insert into board values(board_num_seq.nextval,'첫번째키워드2','두번째키워드2','제목2','내용2',sysdate,1);
-insert into board values(board_num_seq.nextval,'첫번째키워드3','두번째키워드3','제목3','내용3',sysdate,1);
+insert into board values(board_num_seq.nextval,'첫번째키워드','두번째키워드','제목','내용',sysdate,1,'csbzero1');
+insert into board values(board_num_seq.nextval,'첫번째키워드2','두번째키워드2','제목2','내용2',sysdate,1,'csbzero1');
+insert into board values(board_num_seq.nextval,'첫번째키워드3','두번째키워드3','제목3','내용3',sysdate,1,'csbzero1');
 
 --insert into board values(board_num_seq.nextval,#{board_firstkeyword},#{board_secondkeyword},#{board_name},#{board_content},sysdate,#{channel_num});
 
 
 --게시판 전체 가져오기.
-select * from board;
+select * from board where member_id_fk = 'csbzero1';
 --게시판 개수
 select count(*) from board;
 

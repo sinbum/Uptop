@@ -19,11 +19,19 @@
 	
 	<!-- 게시판 생성 SQL 문 삽입 -->	
 	<insert id="makeBoardDo">
-	insert into board values(board_num_seq.nextval,#{board_firstkeyword},#{board_secondkeyword},#{board_name},#{board_content},sysdate,#{channel_num})	
+	insert into board values(board_num_seq.nextval,#{board_firstkeyword},#{board_secondkeyword},#{board_name},#{board_content},sysdate,#{channel_num},#{member_id_fk})	
 	</insert>
 	
 	<select id="getChannelList" resultType="vo.BoardChannelVO">
 	select * from channel where member_id_fk = #{memberId}
+	</select>
+	
+	<select id="getMemberDetail" resultType="vo.MemberVO">
+	select * from member where id = #{sessionId}
+	</select>
+	
+	<select id="getBoardlist" resultType="vo.BoardVO">
+	select * from board where member_id_fk = #{sessionId}	
 	</select>
 	
 </mapper>
