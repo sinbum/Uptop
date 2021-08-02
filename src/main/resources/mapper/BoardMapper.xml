@@ -4,10 +4,14 @@
 	
 	<select id="viewAll" resultType="vo.BoardVO">
 	SELECT * FROM board
+	</select>	
+	<select id="selectBoardList">	
 	</select>
 	
-	<select id="selectBoardList">
-	
+	<select id="getMaxCount" resultType="int">
+	select count(*) from board
 	</select>
+	
+	
 	
 </mapper>
