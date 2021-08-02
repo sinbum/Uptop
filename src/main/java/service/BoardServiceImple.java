@@ -30,6 +30,14 @@ public class BoardServiceImple implements BoardService{
 	public int selectBoardListCnt(BoardVO boardVO) {
 		return 0;
 	}
+
+	@Override
+	public int getMaxCount() {
+		return mapper.getMaxCount();
+	}
+
+	
+
 	
 	
 
