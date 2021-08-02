@@ -54,8 +54,7 @@ public class BoardController {
     	mv.addObject("main","maintest2.jsp");    	
        mv.setViewName("/WEB-INF/mainpage.jsp");    	
     	
-		return mv;
-    	
+		return mv;    	
     }
     
     
