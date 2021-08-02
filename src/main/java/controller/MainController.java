@@ -6,12 +6,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import paging.Pagination;
@@ -128,18 +126,19 @@ public class MainController {
 			String board_secondkeyword,
 			String board_name,
 			String board_content,
-			String channel_num
-			) {
-		System.out.printf("%s, %s,%s,%s,%d",board_firstkeyword,
-				board_secondkeyword,
-				board_name, board_content,
-				Integer.parseInt(channel_num));
+			String channel_num,
+			HttpServletRequest request
+			) {	
+		
+		String SessionId = (String)request.getSession().getAttribute("id");
 		
 		int makeboard_result = mainservice.makeBoardDo(
 				board_firstkeyword,
 				board_secondkeyword,
 				board_name, board_content,
-				Integer.parseInt(channel_num));
+				Integer.parseInt(channel_num),
+				SessionId
+				);
 		mv.addObject("mkBoardResult",makeboard_result);
 		mv.addObject("main","board/makeboard.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
@@ -187,7 +186,59 @@ public class MainController {
 		}				
 		return mv;		
 	}
-
+	
+	
+	//비동기를 이용한 정보가져오기. ajax.	
+	
+	@RequestMapping("/mypage/profileInfo")
+	public ModelAndView profileInfo(HttpServletRequest request) {
+		String sessionId=(String)request.getSession().getAttribute("id");		
+		
+		//세션아이디가 널이아닐경우 로그인페이지로 이동.
+		if(sessionId!=null) {
+			mv.addObject("memberVO",mainservice.getMemberDetail(sessionId));
+			mv.addObject("sessionid",sessionId);
+			mv.setViewName("/WEB-INF/view/mypage/profileinfo.jsp");
+		}else{
+			mv.addObject("main","/login/login.jsp");	
+			mv.setViewName("/WEB-INF/mainpage.jsp");
+		}				
+		return mv;		
+	}
+	
+	@RequestMapping("/mypage/channelInfo")
+	public ModelAndView channelInfo(HttpServletRequest request) {
+		String sessionId=(String)request.getSession().getAttribute("id");
+		
+		
+		
+		//세션아이디가 널이아닐경우 로그인페이지로 이동.
+		if(sessionId!=null) {
+			mv.addObject("channelVO",mainservice.getChannelList(sessionId));
+			mv.addObject("sessionid",sessionId);
+			mv.setViewName("/WEB-INF/view/mypage/channelInfo.jsp");
+		}else{
+			mv.addObject("main","/login/login.jsp");	
+			mv.setViewName("/WEB-INF/mainpage.jsp");
+		}				
+		return mv;		
+	}
+	@RequestMapping("/mypage/boardInfo")
+	public ModelAndView noticeInfo(HttpServletRequest request) {
+		String sessionId=(String)request.getSession().getAttribute("id");
+		System.out.println(mainservice.getBoardlist(sessionId));
+		//세션아이디가 널이아닐경우 로그인페이지로 이동.
+		if(sessionId!=null) {
+			
+			mv.addObject("boardVO",mainservice.getBoardlist(sessionId));
+			mv.addObject("sessionid",sessionId);
+			mv.setViewName("/WEB-INF/view/mypage/boardInfo.jsp");
+		}else{
+			mv.addObject("main","/login/login.jsp");	
+			mv.setViewName("/WEB-INF/mainpage.jsp");
+		}					
+		return mv;		
+	}
 	
 
 
