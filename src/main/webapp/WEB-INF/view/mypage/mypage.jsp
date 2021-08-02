@@ -3,36 +3,28 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
     
 <script>
-//$(document).ready(function(){
 	
-		//function ajax(this){
-			//alert("1");
-		//}
+$(document).ready(function(){	
+	  $("#info > ul > li > font").click(function(){	  	
+		  //alert($(this).attr("id"));
+		  
+		  $.ajax({url: "/mypage/"+$(this).attr("id"), success: function(result){
+			    $("#resultinfo").html(result);
+			  }});		  
+	  });
+	});
 	
-	   // $.ajax({url: "demo_test.txt", success: function(result){
-	     // $("#div1").html(result);
-	    //}});	    
-	    
-	//});
-	
-	//fucntion ajax(s){
-		//alert("sss");
-	//}
 </script>
 
 <body>
-<div>
+<div id="info">
 	<ul>
-		<li><a href="" onclick="ajax(this.id)" id="profileInfo">나의 프로필 정보</a></li>
-	</ul>
-	<ul>
-		<li><a href="" onclick="ajax(this)" id="channelInfo">나의 채널 정보</a></li>
-	</ul>	
-	<ul>
-		<li onclick="ajax(this)" id="noticeInfo" ><a href="">나의 게시물 정보</a></li>
+		<li><font style="cursor: pointer" id="profileInfo">나의 프로필 정보</font> </li>
+		<li><font style="cursor: pointer" id="channelInfo">나의 채널 정보</font> </li>
+		<li><font style="cursor: pointer" id="boardInfo">나의 게시물 정보</font> </li>
 	</ul>	
 </div>
 
-
+<div id="resultinfo"></div>
 
 </body>
