@@ -1,0 +1,128 @@
+drop sequence board_num_seq;
+drop SEQUENCE channel_num_seq;
+drop SEQUENCE member_num_seq;
+drop table report;
+drop table board_detail;
+drop table board;
+drop table channel;
+drop table member;
+
+drop sequence board_num_seq;
+drop SEQUENCE channel_num_seq;
+drop SEQUENCE member_num_seq;
+drop table report;
+drop table board_detail;
+drop table board;
+drop table channel;
+drop table member;
+
+
+--회원가입 테이블의 간단한 가입 양식 설정.
+create table member(
+num int constraint member_num primary key,
+id varchar2(50) constraint member_id unique,
+password varchar2(50) not null,
+email varchar2(40) unique not null
+);
+
+CREATE SEQUENCE member_num_seq
+INCREMENT BY 1
+start with 1
+;
+
+
+insert into member values (member_num_seq.nextval,'csbzero1','1111','csbzero@naver.com');
+
+select * from member;
+
+--회원가입자가 여러 채널을 만들수 있도록 데이터 테이블을 만든다.
+create table channel (
+CHANNEL_NUM number(19) constraint pk_channel_num primary key,
+CHANNEL_NAME varchar2(100) NOT NULL unique,
+CHANNEL_INFO varchar2(1000),
+CHANNEL_CATEGORY varchar2(30) NOT NULL,
+CHANNEL_DATE date,
+member_id_fk varchar(50) references member(id)
+);
+
+--채널넘 시퀀스 생성
+create sequence channel_num_seq
+start with 1
+INCREMENT by 1;
+
+insert into channel values(channel_num_seq.nextval,'채널 이름','채널소개','채널 분류',sysdate,'csbzero1');
+
+--현재 등록된 모든 채널
+select * from channel;
+
+--한 아이디가 가지고 있는 채널 검색.
+select * from channel where member_id_fk ='csbzero1';
+
+
+--게시판 테이블 생성
+create table board(
+board_NUM NUMBER(19) constraint pk_board_num primary key,
+BOARD_FIRSTKEYWORD varchar2(50) not null,
+BOARD_SECONDKEYWORD varchar2(50) not null,
+BOARD_NAME VARCHAR2(50) NOT NULL,
+BOARD_CONTENT VARCHAR2(1000),
+BOARD_DATE DATE,
+channel_num int constraint channel_num_fk references channel(channel_num)
+);
+
+
+--보드넘 시퀀스 생성.
+create sequence board_num_seq
+start with 1
+INCREMENT by 1;
+
+insert into board values(board_num_seq.nextval,'첫번째키워드','두번째키워드','제목','내용',sysdate,1);
+insert into board values(board_num_seq.nextval,'첫번째키워드2','두번째키워드2','제목2','내용2',sysdate,1);
+insert into board values(board_num_seq.nextval,'첫번째키워드3','두번째키워드3','제목3','내용3',sysdate,1);
+
+--insert into board values(board_num_seq.nextval,#{board_firstkeyword},#{board_secondkeyword},#{board_name},#{board_content},sysdate,#{channel_num});
+
+
+--게시판 전체 가져오기.
+select * from board;
+--게시판 개수
+select count(*) from board;
+
+--게시판 조회수,좋아요,싫어요를 기본 게시판번호를 참조하여 테이블생성.
+
+
+CREATE table board_detail(
+BOARD_DETAIL_NUM NUMBER(19) references board(board_num) CONSTRAINT board_detail_num primary key,
+BOARD_COUNT NUMBER(19),
+BOARD_LIKE NUMBER(19),
+BOARD_HATE NUMBER(19)
+);
+insert into board_detail values (1,200,2,20);
+
+
+--좋아요를 눌렀을때에 좋아요 한개를 추가함.
+update board_detail
+set board_like = board_like + 1
+where board_detail_num = 1;
+
+--싫어요 눌렀을때 싫어요를 추가
+--좋아요를 눌렀을때에 좋아요 한개를 추가함.
+update board_detail
+set board_like = board_like - 1
+where board_detail_num = 1; --어느 게시판 번호인지를 확인.
+
+--클릭했을때 게시물을 클릭했을때 조회수를 추가하도록 함.
+update board_detail
+set BOARD_COUNT = BOARD_COUNT + 1
+where board_detail_num = 1;
+
+
+--게시판 번호,유저아이디,댓글내용,좋아요,싫어요
+--신고버튼을 눌렸을때 게시판번호의 기본키를 외래키로설정하려고함
+create table report (
+REPORT_NUM NUMBER(19) references board(board_num) CONSTRAINT pk_report_num primary key,
+REPORT_CONTEXT VARCHAR2(500),
+REPORT_DATE DATE
+);
+
+commit;
