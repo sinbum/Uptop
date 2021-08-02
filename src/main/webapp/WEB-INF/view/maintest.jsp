@@ -15,10 +15,11 @@
 
 		<c:forEach var="board" items="${boardslist}" varStatus="idx" end="200">
 		<ul>
-                <li>번호 : <c:out value="${board.boards_num}"></c:out></li>
-                <li>제목 : <c:out value="${board.boards_name}"></c:out></li>
-                <li>내용 :<c:out value="${board.boards_content}"></c:out></li>
-                <li>날짜 :<c:out value="${board.boards_date}"></c:out></li>
+                <li>번호 : <c:out value="${board.num}"></c:out></li>
+                <li>제목 : <c:out value="${board.board_name}"></c:out></li>
+                <li>내용 :<c:out value="${board.board_content}"></c:out></li>
+                <li>키워드 : <c:out value="${board.board_firstkeyword}"/><font>VS</font><c:out value="${board.board_secondkeyword}"/>
+                <li>날짜 :<c:out value="${board.board_date}"></c:out></li>
                 <li>참고채널번호 : <c:out value="${board.channel_num_fk}"></c:out></li>               
                 
         </ul>

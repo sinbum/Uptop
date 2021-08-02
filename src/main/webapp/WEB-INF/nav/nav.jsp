@@ -58,7 +58,7 @@
                	<li class="nav-item dropdown">
                   		 <a class="nav-link dropdown-toggle text-primary" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><em class="far fa-user-circle">${sessionScope.id}</em></a>
 	                 	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	                      <a class="dropdown-item" href="#">마이페이지</a>
+	                      <a class="dropdown-item" href="/mypage">마이페이지</a>
 	                      <a class="dropdown-item" href="/login/logout">로그아웃</a>
 	                      <a class="dropdown-item" href="#">고객센터</a>
 	                    </div>

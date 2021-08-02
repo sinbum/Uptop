@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<c:if test="${result eq '1'}">
+<c:if test="${signInResult eq '1'}">
 <script>
 	alert("회원가입이 정상적으로 완료되었습니다.");	
 	location.href='/login';
 </script>
 </c:if>
-<c:if test="${result eq '0'}">
+<c:if test="${signInResult eq '0'}">
 <script>
 	alert("회원가입 처리도중 오류가 발생하였습니다.");	
 </script>

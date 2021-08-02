@@ -11,7 +11,7 @@
     </style>
     
 <body>
-	<form action="makechannel/makechannel.do" method="POST">    
+	<form action="makechannel/makechannel.do" method="POST" accept-charset="utf-8">>    
 	    <ul class="makeboard">
 	        <li>
 	            <label for="channel_name">채널명</label>
