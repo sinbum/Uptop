@@ -1,17 +1,23 @@
 package controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import paging.Pagination;
 import service.BoardServiceImple;
-import service.MainService;
 import service.MainServiceImple;
+import vo.BoardChannelVO;
 import vo.BoardVO;
 
 @Controller
@@ -30,12 +36,17 @@ public class MainController {
 	}
 	
 	@RequestMapping("/index")
-	public ModelAndView index() {
-
-		List<BoardVO> boardslist =boardservice.selectBoardList(1,10);
+	public ModelAndView index(@RequestParam(defaultValue="1") int requestpagenum) {
 		
-		mv.addObject("boardslist",boardslist);
-		mv.addObject("main","maintest2.jsp");
+		// 전체리스트 개수 
+        int listCnt = boardservice.getMaxCount();
+        
+        Pagination pagination = new Pagination(listCnt, requestpagenum);
+        // 전체리스트 출력        
+        List<BoardVO> list = boardservice.viewAll();        
+        mv.addObject("boardslist",list);        
+        mv.addObject("pagination", pagination);        
+        mv.addObject("main","maintest.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
 	}
@@ -49,11 +60,16 @@ public class MainController {
 	}
 	
 	@RequestMapping("/login/login.do")
-	public ModelAndView logindo(String id,String password,HttpServletRequest request) {
+	public ModelAndView logindo(String id,String password,HttpServletRequest request,HttpServletResponse response) {
 		if(mainservice.loginCheck(id,password)==1) {
 			//로그인성공
 			request.getSession().setAttribute("id", id);
-			mv.addObject("main","main.jsp");
+			try {
+				response.sendRedirect("/board/getlist");
+				return null;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			
 		}else{
 			//로그인실패
 			mv.addObject("main","login/login.jsp");	
@@ -64,11 +80,14 @@ public class MainController {
 	}
 	
 	@RequestMapping("/login/logout")
-	public ModelAndView logout(HttpServletRequest request) {
+	public String logout(HttpServletRequest request,HttpServletResponse response) {
 		request.getSession().setAttribute("id",null);
-		mv.addObject("main","main.jsp");		
-		mv.setViewName("/WEB-INF/mainpage.jsp");
-		return mv;
+		try {
+			response.sendRedirect("/index");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}			
+		return "/index";
 	}
 	
 	
@@ -84,7 +103,7 @@ public class MainController {
 		
 		//가입결과 값 반환.
 		int result = mainservice.signIn(id,password,email);
-		mv.addObject("result",String.valueOf(result));
+		mv.addObject("signInResult",result);
 		mv.addObject("main","signin/signin.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
@@ -92,30 +111,83 @@ public class MainController {
 	
 	
 	@RequestMapping("/makeboard")
-	public ModelAndView makeboard() {		
+	public ModelAndView makeboard(HttpServletRequest response) {
+		String memberId =(String) response.getSession().getAttribute("id");		
+		List <BoardChannelVO> channelList=mainservice.getChannelList(memberId);
+		System.out.println(channelList);
+		
+		mv.addObject("channelList",channelList);
+		mv.addObject("main","board/makeboard.jsp");
+		mv.setViewName("/WEB-INF/mainpage.jsp");
+		return mv;
+	}
+	
+	@RequestMapping("makeboard/makeboard.do")
+	public ModelAndView makeBoardDo(
+			String board_firstkeyword,
+			String board_secondkeyword,
+			String board_name,
+			String board_content,
+			String channel_num
+			) {
+		System.out.printf("%s, %s,%s,%s,%d",board_firstkeyword,
+				board_secondkeyword,
+				board_name, board_content,
+				Integer.parseInt(channel_num));
+		
+		int makeboard_result = mainservice.makeBoardDo(
+				board_firstkeyword,
+				board_secondkeyword,
+				board_name, board_content,
+				Integer.parseInt(channel_num));
+		mv.addObject("mkBoardResult",makeboard_result);
 		mv.addObject("main","board/makeboard.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
 	}
 	
 	@RequestMapping("/makechannel")
-	public ModelAndView makechannel() {		
+	public ModelAndView makeChannel() {		
 		mv.addObject("main","channel/makechannel.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
 	}
+		
 	
 	@RequestMapping("/makechannel/makechannel.do")
-	public ModelAndView makechanneldo(String channel_name,String channel_info,String channel_category,HttpServletRequest request){
-		String sessionId=(String)request.getSession().getAttribute("id");
+	public ModelAndView makechanneldo(
+			String channel_name,
+			String channel_info,
+			String channel_category,
+			HttpServletRequest request){
+		String member_id_fk=(String)request.getSession().getAttribute("id");
 		
-		int result = mainservice.makeChannel();
+		System.out.println("채널네임 : "+channel_name);
+		int result = mainservice.makeChannel(channel_name, channel_info, channel_category, member_id_fk);
+		
 		mv.addObject("result",result);
 		
 		mv.addObject("main","channel/makechanneldo.jsp");
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
 	}
+	
+	@RequestMapping("/mypage")
+	public ModelAndView myPage(HttpServletRequest request) {
+		String sessionId=(String)request.getSession().getAttribute("id");
+		System.out.println(sessionId);
+	
+		if(sessionId==null) {
+			mv.addObject("main","/login/login.jsp");	
+			mv.setViewName("/WEB-INF/mainpage.jsp");			
+		}else {
+			mv.addObject("sessionid",sessionId);
+			mv.addObject("main","mypage/mypage.jsp");		
+			mv.setViewName("/WEB-INF/mainpage.jsp");
+		}				
+		return mv;		
+	}
+
 	
 
 
