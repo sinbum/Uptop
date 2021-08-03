@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import paging.Pagination;
 import service.BoardService;
-import service.MainService;
+import service.BoardServiceImple;
 import service.MainServiceImple;
+import vo.BoardDetailVO;
 import vo.BoardVO;
+import vo.TotalBoardVO;
 
 @Controller
 @RequestMapping(value="/board/")
@@ -24,7 +26,7 @@ public class BoardController {
 
 	@Autowired
 	@Qualifier("bs")
-	BoardService boardService;
+	BoardServiceImple boardService;
 	
 	public BoardController() {
 	mv= new ModelAndView();
@@ -54,6 +56,18 @@ public class BoardController {
     	mv.addObject("main","maintest2.jsp");    	
        mv.setViewName("/WEB-INF/mainpage.jsp");    	
     	
+		return mv;    	
+    }
+    
+    @RequestMapping("searchBoardNum")
+    public ModelAndView searchboardInfo(String boardNum) {  	
+    	TotalBoardVO searchBboardInfo = boardService.searchBoardInfo(boardNum);
+    	BoardDetailVO searchBoardDetail = boardService.searchBoardDetail(boardNum);
+    	
+    	mv.addObject("boardDetail",searchBoardDetail);
+    	mv.addObject("boardInfo",searchBboardInfo);
+    	mv.addObject("main","board/board.jsp");
+    	mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;    	
     }
     

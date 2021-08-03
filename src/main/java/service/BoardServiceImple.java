@@ -7,14 +7,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import config.mapper.BoardMapper;
+import vo.BoardDetailVO;
 import vo.BoardVO;
+import vo.TotalBoardVO;
 
 @Service
 @Qualifier("bs")
 public class BoardServiceImple implements BoardService{
 
 	@Autowired
-	private BoardMapper mapper;
+	private BoardMapper mapper;	
 	
 	@Override
 	public List<BoardVO> viewAll() {
@@ -34,6 +36,17 @@ public class BoardServiceImple implements BoardService{
 	@Override
 	public int getMaxCount() {
 		return mapper.getMaxCount();
+	}
+
+	@Override
+	public TotalBoardVO searchBoardInfo(String boardNum) {
+						
+		return mapper.searchBoardInfo(boardNum); 
+	}
+
+	public BoardDetailVO searchBoardDetail(String boardNum) {
+		// TODO Auto-generated method stub
+		return mapper.searchBoardDetail(boardNum);
 	}
 
 	
