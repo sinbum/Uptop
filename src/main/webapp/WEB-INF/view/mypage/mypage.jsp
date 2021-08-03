@@ -28,8 +28,8 @@ $(document).ready(function(){
 	</ul>	
 </div>
 
-<div id="profileInfoResult" style="display: none;"></div>
-<div id="channelInfoResult" style="display: none;"></div>
-<div id="boardInfoResult" style="display: none;"></div>
+<div id="profileInfoResult" style="display: none;"></div><br>
+<div id="channelInfoResult" style="display: none;"></div><br>
+<div id="boardInfoResult" style="display: none;"></div><br>
 
 </body>

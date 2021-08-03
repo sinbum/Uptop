@@ -2,8 +2,11 @@
     pageEncoding="UTF-8"%>
     
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var="board" value="${boards}" scope="request"/>
-  
+<%-- <c:set var="board" value="${boards}" scope="request"/> --%>
+
+"${boardInfo}"  <br>
+"${boardDetail}" <br>
+
 
  <section>
  <div class="container-fluid" id="main_section">
@@ -16,7 +19,7 @@
                         
                         <li class="col-sm-12">
                             <ul >
-                                <li id="board_name">{board.getBoardvo().getBoards_name()}</li><hr>
+                                <li id="board_name"><!-- {board.getBoardvo().getBoards_name()} --></li><hr>
                             </ul> 
                         </li>                    
                     
@@ -24,7 +27,7 @@
                         <li class="col-sm-12">
                             <ul class="d-flex p-6 ">
                                 <li class="p-2">조회수</li>
-                                <li class="p-2">{board.get(0).getBoards_date()}</li>
+                                <li class="p-2"><!-- {board.get(0).getBoards_date()} --></li>
                                 <li class="p-2">좋아요</li>
                                 <li class="p-2">싫어요</li>
                                 <li class="p-2">공유</li>
@@ -49,7 +52,7 @@
                                      <!--   처리해야할 일 컨텐츠 내용에 높이제한,, 더보기와 간략히 스크립트 동작 -->
                                         <li class="col-sm-12">
                                             <ul>
-                                                <li>{board.get(0).getBoards_content()}</li>
+                                                <li><!-- {board.get(0).getBoards_content()} --></li>
                                                 <li>더보기,간략히 페이드인 아웃처리 하면 될것 같음.</li>                    
                                             </ul>
                                         </li> 
@@ -67,7 +70,7 @@
                
                 <div id="main_aside" class="col-sm-4" style="background-color:orange;">
                      <p>              
-                    <jsp:include page="/WEB-INF/view/main.jsp"></jsp:include>
+                    <%-- <jsp:include page="/WEB-INF/view/main.jsp"></jsp:include> --%>
                 </div>
             </div>
             </div>
