@@ -130,3 +130,45 @@ REPORT_DATE DATE
 );
 
 commit;
+
+
+
+
+select * from board where board_num=4;
+select board.*,channel.* from board,channel;
+select * from board_detail;
+
+create view gettotalboardvo as
+select 
+--보드 vo--
+board.BOARD_NUM, board.BOARD_FIRSTKEYWORD, board.BOARD_SECONDKEYWORD, board.BOARD_NAME, board.BOARD_CONTENT, board.BOARD_DATE, board.CHANNEL_NUM, board.MEMBER_ID_FK,
+--보드디테일--
+--board_detail.BOARD_DETAIL_NUM, board_detail.BOARD_COUNT, board_detail.BOARD_LIKE, board_detail.BOARD_HATE,
+--보드의채널정보--
+channel.CHANNEL_NAME, channel.CHANNEL_CATEGORY
+from 
+board , channel 
+where 
+--board.BOARD_NUM = board_detail.BOARD_DETAIL_NUM and
+board.CHANNEL_NUM = channel.CHANNEL_NUM;
+
+select * from gettotalboardvo;
+select * from gettotalboardvo where board_num='1';
+
+commit;
+
+
+
+
+
+select * from board_detail where board_detail_num = 1;
+
+
+select BOARD_DETAIL_NUM, BOARD_COUNT, BOARD_LIKE, BOARD_HATE from board_detail;
+
+drop sequence board_detail_like_seq;
+
+create SEQUENCE board_detail_like_seq
+start with 1
+INCREMENT by 1;
+commit
