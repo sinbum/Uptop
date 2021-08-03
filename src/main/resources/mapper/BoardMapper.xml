@@ -12,6 +12,17 @@
 	select count(*) from board
 	</select>
 	
+	<select id="getBoardVO" resultType="vo.BoardVO">
+	select * from board where board_num=#{searchBoardNum}
+	</select> 
+	
+	<select id="searchBoardInfo" resultType="vo.TotalBoardVO">
+	select * from gettotalboardvo where board_num=#{boardNum}
+	</select>
+	
+	<select id="searchBoardDetail" resultType="vo.BoardDetailVO">
+	select * from board_detail where board_detail_num = #{boardNum}
+	</select>
 	
 	
 </mapper>
