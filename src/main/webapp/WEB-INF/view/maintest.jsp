@@ -2,29 +2,42 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <script>
+		/* $(document).ready(function(){	
+			$("ul li:first-child").click(function(){
+				alert("헬로우");
+			});
+				
+			
+			
+		}); */
+		
 		function fn_paging(number){
 			//alert(number);
 			location.href="/board/getlist?requestpagenum="+number;			
 			
 		}
 		var boardnum=document.getElementById("boardnum").value;  
+		
+		
 
+		
 </script>
 
 <section class="flex-container " id="section">  
-
-		<c:forEach var="board" items="${boardslist}" varStatus="idx" end="200">
-		<ul>
-                <li>번호 : <c:out value="${board.num}"></c:out></li>
-                <li>제목 : <c:out value="${board.board_name}"></c:out></li>
-                <li>내용 :<c:out value="${board.board_content}"></c:out></li>
-                <li>키워드 : <c:out value="${board.board_firstkeyword}"/><font>VS</font><c:out value="${board.board_secondkeyword}"/>
-                <li>날짜 :<c:out value="${board.board_date}"></c:out></li>
-                <li>참고채널번호 : <c:out value="${board.channel_num_fk}"></c:out></li>               
-                
-        </ul>
-		</c:forEach>
 		
+		<div class="boarditem" id="boarditem">
+			<c:forEach var="board" items="${boardslist}" varStatus="idx" end="200">
+				<ul>
+		                <li>번호 : <c:out value="${board.num}"></c:out></li>
+		                <li>제목 : <c:out value="${board.board_name}"></c:out></li>
+		                <li>내용 :<c:out value="${board.board_content}"></c:out></li>
+		                <li>키워드 : <c:out value="${board.board_firstkeyword}"/><font>VS</font><c:out value="${board.board_secondkeyword}"/>
+		                <li>날짜 :<c:out value="${board.board_date}"></c:out></li>
+		                <li>참고채널번호 : <c:out value="${board.channel_num_fk}"></c:out></li>               
+		                
+		        </ul>
+			</c:forEach>
+		</div>
 		
 		
 		<div>
