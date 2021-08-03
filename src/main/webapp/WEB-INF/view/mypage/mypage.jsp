@@ -3,16 +3,19 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
     
 <script>
-	
+
+//alert($(this).attr("id"));
+//alert($(this).attr("id")+"Result");
+
 $(document).ready(function(){	
-	  $("#info > ul > li > font").click(function(){	  	
-		  //alert($(this).attr("id"));
-		  
-		  $.ajax({url: "/mypage/"+$(this).attr("id"), success: function(result){
-			    $("#resultinfo").html(result);
-			  }});		  
-	  });
-	});
+  $("#info > ul > li > font").click(function(){		  
+  var idResult = $(this).attr("id")+"Result";
+	  $("#"+idResult).toggle("slow");  
+	  $.ajax({url: "/mypage/"+$(this).attr("id"), success: function(result){
+		  	$("#"+idResult).html(result);
+	  }});
+  });
+});
 	
 </script>
 
@@ -25,6 +28,8 @@ $(document).ready(function(){
 	</ul>	
 </div>
 
-<div id="resultinfo"></div>
+<div id="profileInfoResult" style="display: none;"></div>
+<div id="channelInfoResult" style="display: none;"></div>
+<div id="boardInfoResult" style="display: none;"></div>
 
 </body>

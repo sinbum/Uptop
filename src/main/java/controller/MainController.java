@@ -197,7 +197,6 @@ public class MainController {
 		//세션아이디가 널이아닐경우 로그인페이지로 이동.
 		if(sessionId!=null) {
 			mv.addObject("memberVO",mainservice.getMemberDetail(sessionId));
-			mv.addObject("sessionid",sessionId);
 			mv.setViewName("/WEB-INF/view/mypage/profileinfo.jsp");
 		}else{
 			mv.addObject("main","/login/login.jsp");	
