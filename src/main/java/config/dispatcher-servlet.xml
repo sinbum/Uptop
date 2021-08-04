@@ -18,7 +18,20 @@
  	<!-- <mybatis-spring:scan base-package="mybatis"/> -->
 	<context:annotation-config/>
 	
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven>
+<!--  responseBody 한글깨짐 설정  -->
+<mvc:message-converters>
+<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+<property name="supportedMediaTypes">
+<list>
+<value>text/html;charset=UTF-8</value>
+</list>
+</property>
+</bean>
+</mvc:message-converters> 
+</mvc:annotation-driven>
+
+<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources> 
 
 <!-- 데이터베이스에 접속하기위한 정보.  -->	
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
