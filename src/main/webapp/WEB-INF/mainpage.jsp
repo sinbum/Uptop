@@ -16,7 +16,7 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
    
    <!-- 현재 폴더의 css폴더를 불러옴. -->
-   <link rel="stylesheet" href="/css/style.css">
+   <link rel="stylesheet" href="/resources/css/style.css">
    <!-- 현재 폴더의 자바스크립트 폴더를 불러옴. -->
   <script type="text/javascript" src="/js/script.js"></script>
   <!-- Swiper JS -->

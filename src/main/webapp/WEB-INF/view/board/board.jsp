@@ -4,8 +4,8 @@
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%-- <c:set var="board" value="${boards}" scope="request"/> --%>
 
-"${boardInfo}"  <br>
-"${boardDetail}" <br>
+<%-- "${boardInfo}"  <br> --%>
+<%-- "${boardDetail}" <br> --%>
 
 
  <section>
@@ -19,17 +19,18 @@
                         
                         <li class="col-sm-12">
                             <ul >
-                                <li id="board_name"><!-- {board.getBoardvo().getBoards_name()} --></li><hr>
-                            </ul> 
+                            	<li>제목 : ${boardInfo.board_name}</li>
+                                <li id="board_name">${boardInfo.board_firstkeyword}vs${boardInfo.board_secondkeyword}</li>
+                            </ul> <hr>
                         </li>                    
                     
                         
                         <li class="col-sm-12">
                             <ul class="d-flex p-6 ">
-                                <li class="p-2">조회수</li>
-                                <li class="p-2"><!-- {board.get(0).getBoards_date()} --></li>
-                                <li class="p-2">좋아요</li>
-                                <li class="p-2">싫어요</li>
+                                <li class="p-2">조회수 :${boardDetail.boardcount}회 </li>
+                                <!-- <li class="p-2">{board.get(0).getBoards_date()}</li> -->
+                                <li class="p-2">좋아요 :${boardDetail.boardlike}회</li>
+                                <li class="p-2">싫어요 : ${boardDetail.boardhate}회</li>
                                 <li class="p-2">공유</li>
                                 <li class="p-2">더보기(신고)</li> 
                             </ul>    <hr>
@@ -43,8 +44,8 @@
                                         <div class="col-sm-12">                                        
                                             <div class="d-flex">
                                                 <ul class="p-2">
-                                                    <li>채널이름</li>
-                                                    <li>구독자수</li>                                                      
+                                                     <li>채널명 : ${boardInfo.channel_name}</li> 
+                                                     <li>카테고리 : ${boardInfo.channel_category}</li>                                                      
                                                 </ul>    
                                                 <li class="p-2 ml-auto">구독버튼</li><hr>
                                             </div> 
