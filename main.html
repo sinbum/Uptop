@@ -72,7 +72,7 @@
 
 
 <main class="row justify-content-around">  
- 
+  
   <!-- 어사이드 -->
   <aside class="col-sm-2" id="#aside" >
 
@@ -153,95 +153,167 @@
     <!-- /링크 어사이드 -->
     
   </aside>
- 
+
+<!-- /어사이드 -->
+
 <!-- 섹션 -->
-<section class=" col-sm-8"><!-- 
-  
-글제목
-
-조회수
-등록날짜
-
-채널명,채널분야
-
-컨텐츠 설명
-
-첫번째 키워드 vs 두번째 키워드
-
-좋아요, 싫어요
-
-댓글게시판 
-
--->
-<div class="row m-auto">
-<h2>슈퍼맨이 돌아왔다</h2>
-<div class="row">
-  <div class="col-lg-3"> <p class="text-muted">조회수 : </p></div>
-  <div class="col-lg-3"> <p class="text-muted">등록날짜 : </p></div>
-  <div class="col-lg-3"> <p class="text-muted">채널명 : </p></div>
-  <div class="col-lg-3"> <p class="text-muted">채널분야 : </p></div>
-</div>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-<p class="text-warning">글내용 : Etiam porta sem malesuada magna mollis euismod.</p>
+ <section class=" col-sm-8">
+  <ol class="breadcrumb justify-content-start">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active">Data</li>
+  </ol>  
+  <div class="container-fluid ">   
+    <h3>주간 인기 게시판</h3>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">List group item heading</h5>
+          <small>3 days ago</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small>Donec id elit non mi porta.</small>
+      </a>
+      
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">List group item heading</h5>
+          <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+      </a>
 
 
+      
+    </div><br><hr>
 
 
-</div> 
 
-<div class="card" style="height: 200px;">
-  <div class="row m-auto" style="width: 90%;">
-    <div class="col-6 m-auto">
-      <button type="button" id="firstkeyword" class="btn btn-outline-info col-11" style="height: 150px; ">투표1</button>  
+      <div class="row ">
+        <h3>최근에 올라온 게시판</h3>
+
+          <div class="col-sm-6 col-md-6 col-lg-3 ">
+            <div class="card border-secondary mb-3" style="max-width: 20rem;">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h4 class="card-title">Secondary card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+         </div>
+         <div class="col-sm-6 col-md-6 col-lg-3 ">
+          <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h4 class="card-title">Secondary card title</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+       </div>
+       <div class="col-sm-6 col-md-6 col-lg-3 ">
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+          <div class="card-header">Header</div>
+          <div class="card-body">
+            <h4 class="card-title">Secondary card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+     </div>
+     <div class="col-sm-6 col-md-6 col-lg-3 ">
+      <div class="card border-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h4 class="card-title">Secondary card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+   </div>
+   <div class="col-sm-6 col-md-6 col-lg-3 ">
+    <div class="card border-secondary mb-3" style="max-width: 20rem;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h4 class="card-title">Secondary card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
     </div>
-    <div class="col-6 m-auto">
-      <button type="button" id="secondkeyword" class="btn btn-outline-primary col-11" style="height: 150px; ">투표2</button>
-    </div>
-  </div>
-</div><br>
-<div class="row justify-content-end">  
-  <div class="col-3">
-    <i class="far fa-thumbs-up" style="font-size: 20px; cursor: pointer;" >&nbsp&nbsp<span>10</span></i>
-  </div>
-  <div class="col-3">
-    <i class="far fa-thumbs-down" style="font-size: 20px; cursor: pointer;">&nbsp&nbsp<span>3</span></i>
-  </div>
-</div>
-<div><br></div>
-
-  
-
-<div class="row m-auto">  
-  <div class="card">
+ </div>
+ <div class="col-sm-6 col-md-6 col-lg-3 ">
+  <div class="card border-secondary mb-3" style="max-width: 20rem;">
+    <div class="card-header">Header</div>
     <div class="card-body">
-      <h4 class="card-title text-muted">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-secondary">Card subtitle</h6>
-      <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link text-muted">채널정보</a>      
+      <h4 class="card-title">Secondary card title</h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
   </div>
-</div>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-3 ">
+    <div class="card border-secondary mb-3" style="max-width: 20rem;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h4 class="card-title">Secondary card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-3 ">
+    <div class="card border-secondary mb-3" style="max-width: 20rem;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h4 class="card-title">Secondary card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+  </div>
 
-<hr>
 
-<div class="float-end">
-<button type="button" class="btn btn-outline-light ">다른글 목록보기</button>
-<button type="button" class="btn btn-outline-light ">뒤로가기</button>
-</div>
-
-
-
-   
-   
-   
-   
-</section>
-
-<!-- /섹션 -->
+         
+      </div>
+      <div >
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#">&laquo;</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">4</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">5</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">&raquo;</a>
+          </li>
+        </ul>
+      </div>
+      <br>  
+     
+  </div>
   
-</main>
-<br>
+  
+  
+  
+  
+  
+  
+</section>
+<div><br></div>
 <hr>
+
+
+ <!-- /섹션 -->
+
+
+ 
+</main>
 
 <footer>
   <div class="row">

@@ -25,7 +25,7 @@
 
   
 </head>
-<body>  
+<body>
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
@@ -50,6 +50,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div class="dropdown-menu">
@@ -72,248 +73,257 @@
 
 
 <main class="row justify-content-around">  
-  
-  <!-- 어사이드 -->
-  <aside class="col-sm-2" id="#aside" >
-
-    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" id="toastshow">
-      <div class="toast-header">
-        <strong class="me-auto">Bootstrap</strong>
-        <small>11 mins ago</small>
-        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close" id="toastshowclose">
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="toast-body">
-        Hello, world! This is a toast message.
-      </div>
-    </div><br>
-
-    <div class="alert alert-dismissible alert-info">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
-    </div>
-
-    <div class="alert alert-dismissible alert-success">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-    </div>
-
-    <div class="alert alert-dismissible alert-primary">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-    </div>
-
-  <!-- 링크 어사이드 -->   
-
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-primary">Primary</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle show" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
-        <div class="dropdown-menu show" aria-labelledby="btnGroupDrop1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 52px);">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-success">Success</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop2" style="">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-info">Info</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-danger">Danger</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- /링크 어사이드 -->
-    
-  </aside>
-
-<!-- /어사이드 -->
-
-<!-- 섹션 -->
- <section class=" col-sm-8">
-  <ol class="breadcrumb justify-content-start">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active">Data</li>
-  </ol>  
-  <div class="container-fluid ">   
-    <h3>주간 인기 게시판</h3>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-          <small>3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Donec id elit non mi porta.</small>
-      </a>
-      
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-          <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
-      </a>
-
-
-      
-    </div><br><hr>
-
-
-
-      <div class="row ">
-        <h3>최근에 올라온 게시판</h3>
-
-          <div class="col-sm-6 col-md-6 col-lg-3 ">
-            <div class="card border-secondary mb-3" style="max-width: 20rem;">
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h4 class="card-title">Secondary card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-         </div>
-         <div class="col-sm-6 col-md-6 col-lg-3 ">
-          <div class="card border-secondary mb-3" style="max-width: 20rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h4 class="card-title">Secondary card title</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-       </div>
-       <div class="col-sm-6 col-md-6 col-lg-3 ">
-        <div class="card border-secondary mb-3" style="max-width: 20rem;">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h4 class="card-title">Secondary card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-     </div>
-     <div class="col-sm-6 col-md-6 col-lg-3 ">
-      <div class="card border-secondary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h4 class="card-title">Secondary card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-   </div>
-   <div class="col-sm-6 col-md-6 col-lg-3 ">
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
- </div>
- <div class="col-sm-6 col-md-6 col-lg-3 ">
-  <div class="card border-secondary mb-3" style="max-width: 20rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h4 class="card-title">Secondary card title</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  </div>
-  <div class="col-sm-6 col-md-6 col-lg-3 ">
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-6 col-lg-3 ">
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-
-
-         
-      </div>
-      <div >
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#">&laquo;</a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="#">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">4</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">5</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">&raquo;</a>
-          </li>
-        </ul>
-      </div>
-      <br>  
-     
-  </div>
-  
-  
-  
-  
-  
-  
-  
-</section>
-<div><br></div>
-<hr>
-
-
- <!-- /섹션 -->
-
-
  
+ 
+ 
+<!-- 섹션 -->
+<section class=" col-sm-8">
+
+  <ul class="nav nav-tabs">
+
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#channel">Channel</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#board">Board</a>
+    </li>
+
+    
+  </ul>
+
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active show" id="home">
+    <br>
+
+
+      <div class="card mb-3">
+        <h3 class="card-header">회원정보</h3>
+        <div class="row ">
+          <div class="card-body col-8">
+            <h5 class="card-title"> 안내사항</h5>
+            <h6 class="card-subtitle text-muted">Profile,Channel,Board 버튼을 눌러 정보를 확인 할 수 있습니다.</h6>
+          </div>
+          <img class="rounded-pill" src="computer.gif" alt="">
+          </div><br>
+        
+        
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-dark">마이페이지 에서 정보를 수정하고 편집하세요.
+          </li>
+        
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">운영자에게 메일보내기</a>
+        </div>
+        <div class="card-footer text-muted">
+         공지 게시일 :  2 일전
+        </div>
+      </div>
+     
+
+    
+    </div>
+
+
+
+    <!-- 회원정보를 수정하는 부분. -->
+    <div class="tab-pane fade" id="profile">
+    <br>
+      <h3>나의 회원 정보</h3>
+      <p>현재 아이디로 등록된 회원정보입니다.</p>
+
+      <form action="">
+        <div class="form-group">
+          <fieldset>
+            <label class="form-label mt-4" for="readOnlyInput">회원번호</label>
+            <input class="form-control" id="readOnlyInput" type="text" readonly="" value="">
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <fieldset>
+            <label class="form-label mt-4" for="readOnlyInput">아이디</label>
+            <input class="form-control" id="readOnlyInput" type="text"  readonly="" value="">
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <fieldset>
+            <label class="form-label mt-4" for="readOnlyInput">비밀번호</label>
+            <input class="form-control" id="readOnlyInput" type="password" readonly="" value="a">
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <fieldset>
+            <label class="form-label mt-4" for="readOnlyInput">이메일</label>
+            <input class="form-control" id="readOnlyInput" type="email" readonly="" value="ddd@naver">
+          </fieldset>
+        </div> <br>
+    
+        <button type="button" class="btn btn-primary float-end">수정</button>
+      </form>
+
+      
+    </div>
+          <!-- 나의 채널정보 -->
+          <!-- 채널번호,채널명,채널분류,등록날짜
+          채널수정버튼,채널삭제버튼 -->
+
+     <!-- 채널 정보를 수정하는 부분. -->
+     <div class="tab-pane fade" id="channel">
+      <br>
+       <h3>채널정보 목록</h3>
+       <p>현재 아이디로 등록된 채널정보 입니다.</p>
+
+       <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">채널번호</th>
+            <th scope="col">채널명</th>
+            <th scope="col">채널분류</th>
+            <th scope="col">등록날짜</th>
+            <th scope="col"></th>            
+          </tr>
+        </thead>
+        <tbody> 
+
+          <form action="" method="GET">
+          <tr>
+            <th scope="row">Default</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
+          </tr>
+        </form>
+        <form action="" method="GET">
+          <tr>
+            <th scope="row">Default</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
+          </tr>
+        </form>
+        <form action="" method="GET">
+          <tr>
+            <th scope="row">Default</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
+          </tr>
+        </form>
+
+        </tbody>
+      </table>        
+      </div>
+
+
+
+
+      <!-- 게시물 정보를 수정하는 부분. -->
+
+      <!-- 나의 게시물 정보 -->
+     <!-- 게시번호 게시물제목 게시날짜
+     게시물수정버튼,게시물삭제버튼 -->
+
+      <div class="tab-pane fade" id="board">
+        <br>
+        <h3>게시물 정보 목록</h3>
+        <p>현재 아이디로 등록된 게시물 입니다.</p>
+        
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">게시번호</th>
+            <th scope="col">게시물제목</th>
+            <th scope="col">게시날짜</th>
+            <th scope="col"></th>            
+          </tr>
+
+        </thead>
+        <tbody>  
+                  
+          <form action="" method="GET">
+            <tr>
+              <th scope="row">Default</th>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <th scope="col">
+                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
+                <button type="submit" class="btn btn-outline-danger btn-sm">삭제</button>
+              </th>            
+            </tr>
+          </form>
+
+          <form action="" method="GET">
+            <tr>
+              <th scope="row">Default</th>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <th scope="col">
+                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
+                <button type="submit" class="btn btn-outline-danger btn-sm">삭제</button>              </th>            
+            </tr>
+          </form>
+          
+          <form action="" method="GET">
+            <tr>
+              <th scope="row">Default</th>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <th scope="col">
+                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
+                <button type="submit" class="btn btn-outline-danger btn-sm">삭제</button>              </th>            
+            </tr>
+          </form>
+
+        </tbody>
+      </table> 
+    
+  
+        
+      </div>
+
+
+    
+    
+  </div>
+
+
+
+  
+  <!-- 프로필정보 -->
+  <!-- 회원번호,아이디,비밀번호,이메일
+  비밀번호수정버튼,이메일수정버튼 -->
+
+
+
+
+
+
+
+   
+   
+   
+</section>
+
+<!-- /섹션 -->
+  
 </main>
+<br>
+<hr>
 
 <footer>
   <div class="row">
