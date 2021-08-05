@@ -72,9 +72,9 @@
 
 
 <main class="row justify-content-around">  
-  
+ 
   <!-- 어사이드 -->
-  <aside class="col-sm-2" id="#aside" >
+  <aside class="col-sm-2" id="#aside" style="display: none;">
 
     <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" id="toastshow">
       <div class="toast-header">
@@ -153,167 +153,91 @@
     <!-- /링크 어사이드 -->
     
   </aside>
-
-<!-- /어사이드 -->
-
-<!-- 섹션 -->
- <section class=" col-sm-8">
-  <ol class="breadcrumb justify-content-start">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active">Data</li>
-  </ol>  
-  <div class="container-fluid ">   
-    <h3>주간 인기 게시판</h3>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-          <small>3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Donec id elit non mi porta.</small>
-      </a>
-      
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-          <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
-      </a>
-
-
-      
-    </div><br><hr>
-
-
-
-      <div class="row ">
-        <h3>최근에 올라온 게시판</h3>
-
-          <div class="col-sm-6 col-md-6 col-lg-3 ">
-            <div class="card border-secondary mb-3" style="max-width: 20rem;">
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h4 class="card-title">Secondary card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-         </div>
-         <div class="col-sm-6 col-md-6 col-lg-3 ">
-          <div class="card border-secondary mb-3" style="max-width: 20rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h4 class="card-title">Secondary card title</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-       </div>
-       <div class="col-sm-6 col-md-6 col-lg-3 ">
-        <div class="card border-secondary mb-3" style="max-width: 20rem;">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h4 class="card-title">Secondary card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-     </div>
-     <div class="col-sm-6 col-md-6 col-lg-3 ">
-      <div class="card border-secondary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h4 class="card-title">Secondary card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-   </div>
-   <div class="col-sm-6 col-md-6 col-lg-3 ">
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
- </div>
- <div class="col-sm-6 col-md-6 col-lg-3 ">
-  <div class="card border-secondary mb-3" style="max-width: 20rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h4 class="card-title">Secondary card title</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  </div>
-  <div class="col-sm-6 col-md-6 col-lg-3 ">
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-6 col-lg-3 ">
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-
-
-         
-      </div>
-      <div >
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#">&laquo;</a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="#">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">4</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">5</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">&raquo;</a>
-          </li>
-        </ul>
-      </div>
-      <br>  
-     
-  </div>
-  
-  
-  
-  
-  
-  
-  
-</section>
-<div><br></div>
-<hr>
-
-
- <!-- /섹션 -->
-
-
  
+<!-- 섹션 -->
+<section class=" col-sm-8">
+  
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">게시물 타이틀</h4>
+      <h6 class="card-subtitle mb-2 text-muted">조회수 : 4 천회</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>      
+      <a href="#" class="card-link">자세히 보기</a>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div><br>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div><br>
+
+
+   
+   
+   
+   
+</section>
+
+<!-- /섹션 -->
+  
 </main>
+<br>
+<hr>
 
 <footer>
   <div class="row">

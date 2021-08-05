@@ -69,113 +69,69 @@
   </div>
  
 </nav><br>
-<ol class="breadcrumb justify-content-start">
-  <li class="breadcrumb-item"><a href="#">Home</a></li>
-  <li class="breadcrumb-item"><a href="#">Library</a></li>
-  <li class="breadcrumb-item active">Data</li>
-</ol>  
+
 
 <main class="row justify-content-around">  
   
-  <!-- 어사이드 -->
-  <aside class="col-sm-2" id="#aside">
-
-    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" id="toastshow">
-      <div class="toast-header">
-        <strong class="me-auto">Bootstrap</strong>
-        <small>11 mins ago</small>
-        <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close" id="toastshowclose">
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="toast-body">
-        Hello, world! This is a toast message.
-      </div>
-    </div><br>
-
-    <div class="alert alert-dismissible alert-info">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
-    </div>
-
-    <div class="alert alert-dismissible alert-success">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-    </div>
-
-    <div class="alert alert-dismissible alert-primary">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-    </div>
-
-  <!-- 링크 어사이드 -->   
-
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-primary">Primary</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle show" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
-        <div class="dropdown-menu show" aria-labelledby="btnGroupDrop1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 52px);">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-success">Success</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop2" style="">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-info">Info</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-danger">Danger</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- /링크 어사이드 -->
-    
-  </aside>
-
-<!-- /어사이드 -->
-
+ 
 <!-- 섹션 -->
  <section class=" col-sm-8">
+  <ol class="breadcrumb justify-content-start">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active">Data</li>
+  </ol>  
+  <form>
+    <fieldset>
+      <legend>회원가입</legend>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-4 col-form-label">어서오십시오</label>
+        <div class="col-sm-8">
+          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="가입을 위해 아래를 작성해주세요.">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label mt-4">이메일</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="예) hong@gmail.com">
+        <small id="emailHelp" class="form-text text-muted">Uptop은 회원정보를 절대 공유하지 않습니다.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label mt-4">비밀번호</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="10자리 이상,대소문자 포함">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label mt-4">비밀번호 재입력</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호 재입력">
+      </div>
+      
+     
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">가입 한마디</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+      </div><br><br>
+      
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-lg btn-primary" type="submit">회원가입</button>
+      </div>
+
+
+      
+    
+  </form>
   
   
   
-  
-  
+   
+   
+   
+   
 </section>
-<hr>
-
-
- <!-- /섹션 -->
-
-
- 
+<!-- /섹션 -->
+  
 </main>
+<br>
+<hr>
 
 <footer>
   <div class="row">
