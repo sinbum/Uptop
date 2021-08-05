@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="resources/css/bootstrap.css" rel="stylesheet">
+  <script>
+  $(document).ready(function(){
+    $("#toastshowclose").click(function(){      
+      $("#toastshow").hide();
+    });
+    
+    $("#asidetoggle").click(function(){      
+      $("aside").toggle("slow");
+    });
+
+  });
+  </script>
+
+  
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="asidetoggle">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+ 
+</nav><br>
+
+
+<main class="row justify-content-around">  
+ 
+ 
+ 
+<!-- 섹션 -->
+<section class=" col-sm-8">
+
+  <div class="row">
+
+   
+    <div class="col-lg-5">
+
+  <h3>게시 질문 작성</h3>
+
+    <form action="makeboard/makeboard.do" method="POST">
+
+      <div class="form-group">
+        <label class="col-form-label mt-4" for="inputDefault">게시물 제목</label>
+        <input type="text" class="form-control btn-outline-warning" placeholder="Default input" id="inputDefault">
+      </div>
+      <div class="form-group">
+        <label class="col-form-label mt-4" for="inputDefault">첫번째 키워드</label>
+        <input type="text" class="form-control btn-outline-warning" placeholder="5글자 내로 함축한 키워드를 입력해주세요" id="inputDefault">
+      </div>
+      <div class="form-group">
+        <label class="col-form-label mt-4" for="inputDefault">두번째 키워드</label>
+        <input type="text" class="form-control btn-outline-warning" placeholder="5글자 내로 함축한 키워드를 입력해주세요" id="inputDefault">
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4" >Example textarea</label>
+        <textarea class="form-control btn-outline-warning" id="exampleTextarea" rows="6"></textarea>
+      </div>
+      <br>
+
+      <div class="float-end">
+        <button type="button" class="btn btn-outline-warning">만들기</button>&nbsp;
+        <button type="button" class="btn btn-outline-warning">뒤로가기</button>
+      </div>
+    </form>
+    <br>
+    <br>
+
+  </div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------  -->
+<div class="col-lg-7">
+<h3>작성 미리보기</h3>  
+<div class="card" style="height: 770px;"><br>
+
+<div class="row m-auto">
+  <h2 class="text-secondary">슈퍼맨이 돌아왔다</h2>
+  <div class="row">
+    <div class="col-lg-3"> <p class="text-muted">조회수 : </p></div>
+    <div class="col-lg-3"> <p class="text-muted">등록날짜 : </p></div>
+    <div class="col-lg-3"> <p class="text-muted">채널명 : </p></div>
+    <div class="col-lg-3"> <p class="text-muted">채널분야 : </p></div>
+  </div>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <p class="text-secondary ">글내용 : Etiam porta sem malesuada magna mollis euismod.</p>
+  
+
+  
+  
+  </div> 
+  
+  <div class="" style="height: 200px;">
+    <div class="row m-auto" style="width: 90%;">
+      <div class="col-6 m-auto">
+        <button type="button" id="firstkeyword" class="btn btn-outline-secondary col-11" style="height: 150px; ">투표1</button>  
+      </div>
+      <div class="col-6 m-auto">
+        <button type="button" id="secondkeyword" class="btn btn-outline-secondary col-11" style="height: 150px; ">투표2</button>
+      </div>
+    </div>
+  </div><br>
+  <div class="row justify-content-end">  
+    <div class="col-3">
+      <i class="far fa-thumbs-up text-secondary" style="font-size: 20px; cursor: pointer;" >&nbsp&nbsp<span>10</span></i>
+    </div>
+    <div class="col-3">
+      <i class="far fa-thumbs-down text-secondary" style="font-size: 20px; cursor: pointer;">&nbsp&nbsp<span>3</span></i>
+    </div>
+  </div>
+  <div><br></div>
+  
+    
+  
+  <div class="row m-auto">  
+
+    <div class="">
+      <div class="card-body">
+        <h4 class="card-title text-secondary">Card title</h4>
+        <h6 class="card-subtitle mb-2 text-secondary">Card subtitle</h6>
+        <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link text-secondary">채널정보</a>      
+      </div>
+    </div>
+  </div>
+  
+  <hr>
+</div>
+</div>   
+</div>
+</section>
+
+<!-- /섹션 -->
+  
+</main>
+<br>
+<hr>
+
+<footer>
+  <div class="row">
+  <figure class="col-4 " >
+    <h3>사용 오픈소스</h3>
+    <blockquote class="blockquote">
+      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>      
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+    <button type="button" class="btn btn-outline-success">Success</button>
+
+  </figure>
+  <figure class="col-4">    <blockquote class="blockquote">
+    <h3>만든이</h3>
+      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-info">Info</button>
+
+
+  </figure>
+  <figure class="col-4">    <blockquote class="blockquote">
+    <h3>참고링크</h3>
+      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>    
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+
+  </figure>
+</div>
+
+<div class="d-grid gap-2">
+</div>
+
+</footer>
+
+</body>
+</html>
+
+
+
