@@ -46,15 +46,15 @@ public class MainController {
         List<BoardVO> list = boardservice.viewAll();        
         mv.addObject("boardslist",list);        
         mv.addObject("pagination", pagination);        
-        mv.addObject("main","maintest.jsp");
-		mv.setViewName("/WEB-INF/mainpage.jsp");
+        mv.addObject("section","main/mainsection");
+		mv.setViewName("main");
 		return mv;
 	}
 	
 	@RequestMapping("/login")
 	public ModelAndView login() {
 		
-		mv.addObject("main","/login/login.jsp");	
+		mv.addObject("main","login/login.jsp");	
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
 	}
