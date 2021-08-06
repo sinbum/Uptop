@@ -28,7 +28,7 @@
   
   <div class="form-group d-grid gap-2">
     <button class="btn btn-lg btn-outline-info" type="submit">로그인</button>
-    <button class="btn btn-lg btn-outline-info" type="button">회원가입</button>
+    <button class="btn btn-lg btn-outline-info" type="button" onclick="loaction.href='/signin">회원가입</button>
   </div>
 </form><br>
 <div class="float-end">

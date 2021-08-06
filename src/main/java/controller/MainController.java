@@ -60,34 +60,30 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping("login.do")
+	@RequestMapping("/login.do")
 	public ModelAndView logindo(String id,String password,HttpServletRequest request,HttpServletResponse response) {
 		if(mainservice.loginCheck(id,password)==1) {
 			//로그인성공
 			request.getSession().setAttribute("id", id);
-			try {
-				response.sendRedirect("/index");
-				return null;
-			} catch (IOException e) {
-				e.printStackTrace();
-			}			
+			mv.addObject("section","main/mainsection");				
 		}else{
 			//로그인실패
-			mv.addObject("section","login/login");			
+			mv.addObject("section","login/loginfail");			
 		}
-		mv.setViewName("/WEB-INF/mainpage.jsp");
+		mv.setViewName("main");
 		return mv;
 	}
 	
-	@RequestMapping("/login/logout")
-	public String logout(HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping("/logout")
+	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response) {
 		request.getSession().setAttribute("id",null);
 		try {
 			response.sendRedirect("/index");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}			
-		return "/index";
+		mv.setViewName("main");
+		return mv;
 	}
 	
 	
