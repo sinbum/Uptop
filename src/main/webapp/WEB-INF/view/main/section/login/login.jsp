@@ -11,15 +11,15 @@
     <li class="breadcrumb-item active">Login</li>
   </ol>  
   
-  <form action="" method="POST">   
+  <form action="/login.do" method="POST">   
   <div class="form-group">
     <label class="form-label mt-4 ">로그인</label>
     <div class="form-floating mb-3">
-      <input type="id" class="form-control btn-outline-danger" id="floatingInput" placeholder="name@example.com">
+      <input type="id" class="form-control btn-outline-danger" id="floatingInput" placeholder="name@example.com" name="id">
       <label for="floatingInput">아이디를 입력해주세요.</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control btn-outline-danger" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control btn-outline-danger" id="floatingPassword" placeholder="Password" name="password">
       <label for="floatingPassword">비밀번호를 입력해주세요.</label>
     </div>
   </div> 
@@ -27,7 +27,7 @@
   <br>
   
   <div class="form-group d-grid gap-2">
-    <button class="btn btn-lg btn-outline-info" type="button">로그인</button>
+    <button class="btn btn-lg btn-outline-info" type="submit">로그인</button>
     <button class="btn btn-lg btn-outline-info" type="button">회원가입</button>
   </div>
 </form><br>

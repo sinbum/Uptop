@@ -54,26 +54,26 @@ public class MainController {
 	@RequestMapping("/login")
 	public ModelAndView login() {
 		
-		mv.addObject("main","login/login.jsp");	
-		mv.setViewName("/WEB-INF/mainpage.jsp");
+		mv.addObject("section","login/login");	
+		mv.setViewName("main");
 		return mv;
 	}
 	
-	@RequestMapping("/login/login.do")
+	
+	@RequestMapping("login.do")
 	public ModelAndView logindo(String id,String password,HttpServletRequest request,HttpServletResponse response) {
 		if(mainservice.loginCheck(id,password)==1) {
 			//로그인성공
 			request.getSession().setAttribute("id", id);
 			try {
-				response.sendRedirect("/board/getlist");
+				response.sendRedirect("/index");
 				return null;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}			
 		}else{
 			//로그인실패
-			mv.addObject("main","login/login.jsp");	
-			mv.addObject("logincheck","fail");
+			mv.addObject("section","login/login");			
 		}
 		mv.setViewName("/WEB-INF/mainpage.jsp");
 		return mv;
@@ -93,8 +93,8 @@ public class MainController {
 	
 	@RequestMapping("/signin")
 	public ModelAndView signin() {		
-		mv.addObject("main","signin/signin.jsp");	
-		mv.setViewName("/WEB-INF/mainpage.jsp");
+		mv.addObject("section","signin/signin");
+		mv.setViewName("main");
 		return mv;
 	}
 	
@@ -117,12 +117,12 @@ public class MainController {
 		System.out.println(channelList);
 		
 		mv.addObject("channelList",channelList);
-		mv.addObject("main","board/makeboard.jsp");
-		mv.setViewName("/WEB-INF/mainpage.jsp");
+		mv.addObject("section","board/makeboard");
+		mv.setViewName("main");
 		return mv;
 	}
 	
-	@RequestMapping("makeboard/makeboard.do")
+	@RequestMapping("makeboard.do")
 	public ModelAndView makeBoardDo(
 			String board_firstkeyword,
 			String board_secondkeyword,
@@ -149,8 +149,8 @@ public class MainController {
 	
 	@RequestMapping("/makechannel")
 	public ModelAndView makeChannel() {		
-		mv.addObject("main","channel/makechannel.jsp");
-		mv.setViewName("/WEB-INF/mainpage.jsp");
+		mv.addObject("section","channel/makechannel");
+		mv.setViewName("main");
 		return mv;
 	}
 		
@@ -179,68 +179,67 @@ public class MainController {
 		System.out.println(sessionId);
 	
 		if(sessionId==null) {
-			mv.addObject("main","/login/login.jsp");	
-			mv.setViewName("/WEB-INF/mainpage.jsp");			
+			mv.addObject("section","login/login");						
 		}else {
 			mv.addObject("sessionid",sessionId);
-			mv.addObject("main","mypage/mypage.jsp");		
-			mv.setViewName("/WEB-INF/mainpage.jsp");
+			mv.addObject("section","mypage/mypage");		
 		}				
+		mv.setViewName("main");
 		return mv;		
 	}
 	
 	
 	//비동기를 이용한 정보가져오기. ajax.	
 	
-	@RequestMapping("/mypage/profileInfo")
-	public ModelAndView profileInfo(HttpServletRequest request) {
-		String sessionId=(String)request.getSession().getAttribute("id");		
-		
-		//세션아이디가 널이아닐경우 로그인페이지로 이동.
-		if(sessionId!=null) {
-			mv.addObject("memberVO",mainservice.getMemberDetail(sessionId));
-			mv.setViewName("/WEB-INF/view/mypage/profileinfo.jsp");
-		}else{
-			mv.addObject("main","/login/login.jsp");	
-			mv.setViewName("/WEB-INF/mainpage.jsp");
-		}				
-		return mv;		
-	}
-	
-	@RequestMapping("/mypage/channelInfo")
-	public ModelAndView channelInfo(HttpServletRequest request) {
-		String sessionId=(String)request.getSession().getAttribute("id");
-		
-		
-		
-		//세션아이디가 널이아닐경우 로그인페이지로 이동.
-		if(sessionId!=null) {
-			mv.addObject("channelVO",mainservice.getChannelList(sessionId));
-			mv.addObject("sessionid",sessionId);
-			mv.setViewName("/WEB-INF/view/mypage/channelInfo.jsp");
-		}else{
-			mv.addObject("main","/login/login.jsp");	
-			mv.setViewName("/WEB-INF/mainpage.jsp");
-		}				
-		return mv;		
-	}
-	@RequestMapping("/mypage/boardInfo")
-	public ModelAndView noticeInfo(HttpServletRequest request) {
-		String sessionId=(String)request.getSession().getAttribute("id");
-		System.out.println(mainservice.getBoardlist(sessionId));
-		//세션아이디가 널이아닐경우 로그인페이지로 이동.
-		if(sessionId!=null) {
-			
-			mv.addObject("boardVO",mainservice.getBoardlist(sessionId));
-			mv.addObject("sessionid",sessionId);
-			mv.setViewName("/WEB-INF/view/mypage/boardInfo.jsp");
-		}else{
-			mv.addObject("main","/login/login.jsp");	
-			mv.setViewName("/WEB-INF/mainpage.jsp");
-		}					
-		return mv;		
-	}
-	
+//	@RequestMapping("/mypage/profileInfo")
+//	public ModelAndView profileInfo(HttpServletRequest request) {
+//		String sessionId=(String)request.getSession().getAttribute("id");		
+//		
+//		//세션아이디가 널이아닐경우 로그인페이지로 이동.
+//		if(sessionId!=null) {
+//			mv.addObject("memberVO",mainservice.getMemberDetail(sessionId));
+//			mv.setViewName("/WEB-INF/view/mypage/profileinfo.jsp");
+//		}else{
+//			mv.addObject("main","/login/login.jsp");	
+//			mv.setViewName("/WEB-INF/mainpage.jsp");
+//		}				
+//		return mv;		
+//	}
+//	
+//	@RequestMapping("/mypage/channelInfo")
+//	public ModelAndView channelInfo(HttpServletRequest request) {
+//		String sessionId=(String)request.getSession().getAttribute("id");
+//		
+//		
+//		
+//		//세션아이디가 널이아닐경우 로그인페이지로 이동.
+//		if(sessionId!=null) {
+//			mv.addObject("channelVO",mainservice.getChannelList(sessionId));
+//			mv.addObject("sessionid",sessionId);
+//			mv.setViewName("/WEB-INF/view/mypage/channelInfo.jsp");
+//		}else{
+//			mv.addObject("main","/login/login.jsp");	
+//			mv.setViewName("/WEB-INF/mainpage.jsp");
+//		}				
+//		return mv;		
+//	}
+//	@RequestMapping("/mypage/boardInfo")
+//	public ModelAndView noticeInfo(HttpServletRequest request) {
+//		String sessionId=(String)request.getSession().getAttribute("id");
+//		System.out.println(mainservice.getBoardlist(sessionId));
+//		//세션아이디가 널이아닐경우 로그인페이지로 이동.
+//		if(sessionId!=null) {
+//			
+//			mv.addObject("boardVO",mainservice.getBoardlist(sessionId));
+//			mv.addObject("sessionid",sessionId);
+//			mv.setViewName("/WEB-INF/view/mypage/boardInfo.jsp");
+//		}else{
+//			mv.addObject("main","/login/login.jsp");	
+//			mv.setViewName("/WEB-INF/mainpage.jsp");
+//		}					
+//		return mv;		
+//	}
+//	
 
 
 }

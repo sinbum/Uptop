@@ -14,23 +14,22 @@
 
   <h3>게시 질문 작성</h3>
 
-    <form action="makeboard/makeboard.do" method="POST">
-
+    <form action="makeboard.do" method="POST">
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">게시물 제목</label>
-        <input type="text" class="form-control btn-outline-warning" placeholder="Default input" id="inputDefault">
+        <input type="text" class="form-control btn-outline-warning" placeholder="Default input" id="inputDefault" name="board_name">
       </div>
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">첫번째 키워드</label>
-        <input type="text" class="form-control btn-outline-warning" placeholder="5글자 내로 함축한 키워드를 입력해주세요" id="inputDefault">
+        <input type="text" class="form-control btn-outline-warning" placeholder="5글자 내로 함축한 키워드를 입력해주세요" id="inputDefault" name="board_firstkeyword">
       </div>
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">두번째 키워드</label>
-        <input type="text" class="form-control btn-outline-warning" placeholder="5글자 내로 함축한 키워드를 입력해주세요" id="inputDefault">
+        <input type="text" class="form-control btn-outline-warning" placeholder="5글자 내로 함축한 키워드를 입력해주세요" id="inputDefault" name="board_secondkeyword">
       </div>
       <div class="form-group">
-        <label for="exampleTextarea" class="form-label mt-4" >Example textarea</label>
-        <textarea class="form-control btn-outline-warning" id="exampleTextarea" rows="6"></textarea>
+        <label for="exampleTextarea" class="form-label mt-4" >내용</label>
+        <textarea class="form-control btn-outline-warning" id="exampleTextarea" rows="6" name="board_content"></textarea>
       </div>
       <br>
 
