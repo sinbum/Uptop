@@ -12,35 +12,35 @@
 <h3>채널만들기</h3>
 <p>커뮤니티 채널을 만들어 다양한 컨텐츠를 분류별로 제공할 수 있습니다.</p>
 
-
+<form action="/makechannel.do" method="post">
 <div class="form-group">
   <label class="col-form-label mt-4" for="inputDefault">채널명</label>
-  <input type="text" class="form-control" placeholder="Default input" id="inputDefault">
+  <input type="text" class="form-control" placeholder="Default input" id="inputDefault" name="channel_name">
 </div>
 
 <div class="form-group">
   <label for="exampleSelect1" class="form-label mt-4">채널 분류</label>
-  <select class="form-select" id="exampleSelect1">
+  <select class="form-select" id="exampleSelect1" name="channel_category">
     <option class="text-black-50">음식</option>
     <option class="text-black-50">생활</option>
     <option class="text-black-50">연애</option>
-    <option class="text-black-50">정치</option>    
+    <option class="text-black-50">정치</option>
     <option class="text-black-50">연예</option>
     <option class="text-black-50">스포츠</option>
   </select>
 </div>
 
 <div class="form-group">
-  <label for="exampleTextarea" class="form-label mt-4">채널소개</label>
-  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+  <label for="exampleTextarea" class="form-label mt-4" >채널소개</label>
+  <textarea class="form-control" id="exampleTextarea" rows="3" name="channel_info"></textarea>
 </div><br>
 
 <div class="float-end"> 
-<button type="button" class="btn btn-outline-secondary ">만들기</button> &nbsp
-<button type="button" class="btn btn-outline-secondary ">취소</button>
+<button type="submit" class="btn btn-outline-secondary ">만들기</button> &nbsp
+<button type="button" class="btn btn-outline-secondary " onclick="location.href='javascript:history.back();'" >취소</button>
 </div>
 
-
+</form>
 
 
    

@@ -7,74 +7,23 @@
 <!-- 섹션 -->
 <!-- <section class=" col-sm-8"> -->
   
+<c:forEach var="board" items="${boardslist}" varStatus="idx" end="200">
+  
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">게시물 타이틀</h4>
-      <h6 class="card-subtitle mb-2 text-muted">조회수 : 4 천회</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>      
-      <a href="#" class="card-link">자세히 보기</a>
+      <h4 class="card-title">${board.board_firstkeyword} vs ${board.board_secondkeyword}</h4>
+      <p class="card-text text-muted">조회수 2 천</p>
+      <h6 class="card-subtitle mb-2 text-muted">${board.board_content}</h6>      
+      <form action="/searchboardnum">
+      <button type="submit" class="btn btn-outline-info btn-sm" value="${board.num}" name="boardNum">자세히 보기</button>      
+      </form>
     </div>
   </div><br>
+  
+  
+</c:forEach>
 
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div><br>
-
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div><br>
-
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div><br>
-
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div><br>
-
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div><br>
-
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div><br>
+ 
 
   <div>
     <ul class="pagination justify-content-center">

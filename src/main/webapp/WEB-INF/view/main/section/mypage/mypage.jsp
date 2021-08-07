@@ -3,30 +3,39 @@
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 
- 
+ <div><br></div><div><br></div>
 <!-- 섹션 -->
 <!-- <section class=" col-sm-8"> -->
 
   <ul class="nav nav-tabs">
 
     <li class="nav-item">
-      <a class="nav-link active" data-bs-toggle="tab" href="#home">home</a>
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">홈</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a>
+      <a class="nav-link" data-bs-toggle="tab" href="#profile">프로필</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#channel">Channel</a>
+      <a class="nav-link" data-bs-toggle="tab" href="#channel">채널</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#board">Board</a>
+      <a class="nav-link" data-bs-toggle="tab" href="#board">보드</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#setting">설정</a>
     </li>
 
     
-  </ul>
+  </ul>  
+  
+  
+  <!-- 프로필정보 -->
+  <!-- 회원번호,아이디,비밀번호,이메일
+  비밀번호수정버튼,이메일수정버튼 -->  
 
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active show" id="home">
@@ -63,7 +72,9 @@
 
 
 
-    <!-- 회원정보를 수정하는 부분. -->
+    <!-- 회원정보를 읽어오는하는 부분. -->
+    <!-- ${memberVO} -->
+    
     <div class="tab-pane fade" id="profile">
     <br>
       <h3>나의 회원 정보</h3>
@@ -73,30 +84,30 @@
         <div class="form-group">
           <fieldset>
             <label class="form-label mt-4" for="readOnlyInput">회원번호</label>
-            <input class="form-control" id="readOnlyInput" type="text" readonly="" value="">
+            <input class="form-control" id="readOnlyInput" type="text" readonly="" value="${memberVO.num}">
           </fieldset>
         </div>
         <div class="form-group">
           <fieldset>
             <label class="form-label mt-4" for="readOnlyInput">아이디</label>
-            <input class="form-control" id="readOnlyInput" type="text"  readonly="" value="">
+            <input class="form-control" id="readOnlyInput" type="text"  readonly="" value="${memberVO.id}">
           </fieldset>
         </div>
         <div class="form-group">
           <fieldset>
             <label class="form-label mt-4" for="readOnlyInput">비밀번호</label>
-            <input class="form-control" id="readOnlyInput" type="password" readonly="" value="a">
+            <input class="form-control" id="readOnlyInput" type="password" readonly="" value="${memberVO.password}">
           </fieldset>
         </div>
         <div class="form-group">
           <fieldset>
             <label class="form-label mt-4" for="readOnlyInput">이메일</label>
-            <input class="form-control" id="readOnlyInput" type="email" readonly="" value="ddd@naver">
+            <input class="form-control" id="readOnlyInput" type="email" readonly="" value="${memberVO.email}">
           </fieldset>
         </div> <br>
         <div class="float-end">
           <button type="button" class="btn btn-primary ">이메일 변경</button>
-          &nbsp
+          &nbsp;
           <button type="button" class="btn btn-primary ">비밀번호 변경</button>  
 
 
@@ -126,37 +137,21 @@
           </tr>
         </thead>
         <tbody> 
-
-          <form action="" method="GET">
-          <tr>
-            <th scope="row">Default</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
-          </tr>
-        </form>
-        <form action="" method="GET">
-          <tr>
-            <th scope="row">Default</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
-          </tr>
-        </form>
-        <form action="" method="GET">
-          <tr>
-            <th scope="row">Default</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
-          </tr>
-        </form>
-
+			<c:forEach var="channel" items="${channelVO}">
+	       	<form action="" method="GET">
+		          <tr>
+		            	 <td>${channel.channel_num}</td>
+				        <td>${channel.channel_name}</td>
+				        <td>${channel.channel_category}</td>
+				        <td>${channel.channel_date}</td>
+		            <th scope="col"><button type="submit" class="btn btn-outline-warning btn-sm">수정</button></th>
+		          </tr>
+    		 	</form>   
+            </c:forEach>      
+            
         </tbody>
       </table>        
+			<button type="button" class="btn btn-outline-light justify-content-end" onclick="location.href='/makechannel'">채널 생성하기</button>
       </div>
 
 
@@ -184,43 +179,22 @@
 
         </thead>
         <tbody>  
-                  
-          <form action="" method="GET">
-            <tr>
-              <th scope="row">Default</th>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <th scope="col">
-                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
-                <button type="submit" class="btn btn-outline-danger btn-sm">삭제</button>
-              </th>            
-            </tr>
-          </form>
+			<c:forEach var="board" items="${boardVO}">
+         	 	<form action="/updateboard" method="GET">
+	            <tr>
+	              <th scope="row">${board.num}</th>
+						<td>"${board.board_name}"</td>
+						<td>"${board.board_date}"</td>
+						
+	              <th scope="col">
+	                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
+	                <button type="button" class="btn btn-outline-danger btn-sm">삭제</button>
+	              </th>            
+	            </tr>
+          		</form>
+            </c:forEach>      
+            
 
-          <form action="" method="GET">
-            <tr>
-              <th scope="row">Default</th>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <th scope="col">
-                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
-                <button type="submit" class="btn btn-outline-danger btn-sm">삭제</button>              </th>            
-            </tr>
-          </form>
-          
-          <form action="" method="GET">
-            <tr>
-              <th scope="row">Default</th>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <th scope="col">
-                <button type="submit" class="btn btn-outline-warning btn-sm">수정</button>
-                <button type="submit" class="btn btn-outline-danger btn-sm">삭제</button>              </th>            
-            </tr>
-          </form>
 
         </tbody>
       </table> 
@@ -231,17 +205,25 @@
 
 
     
+		  <!-- 게시판을 설정하는 부분. 쿠키값으로 테마변경하기. -->
+		  
+		
+		 <div class="tab-pane fade" id="setting">
+		        <br>
+		        <h3>설정</h3>
+		        <p>테마,기본설정 등을 설정합니다.</p>     
+		     
+		
+		
+		    
+		    
+		 </div>
     
   </div>
-
-
-
+  <div><br></div>
+  <div><br></div>
+  <div><br></div>
   
-  <!-- 프로필정보 -->
-  <!-- 회원번호,아이디,비밀번호,이메일
-  비밀번호수정버튼,이메일수정버튼 -->
-
-
 
 
 

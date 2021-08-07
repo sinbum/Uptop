@@ -5,7 +5,7 @@
     
     
  <div class="container-fluid">
-  <a class="navbar-brand" href="#">Uptop!</a>
+  <a class="navbar-brand" href="/index">Uptop!</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
-        <a class="nav-link active" href="#">홈
+        <a class="nav-link active" href="index">홈
           <span class="visually-hidden">(current)</span>
         </a>
       </li>
@@ -21,7 +21,7 @@
         <a class="nav-link" href="#" id="asidetoggle">사이드</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">투표</a>
+        <a class="nav-link" href="/board">투표보드</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">어바웃</a>
@@ -37,6 +37,7 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >"${id}" 님</a>        		
         <div class="dropdown-menu">
           <a class="dropdown-item" href="/about">Uptop소개</a>
+           <a class="dropdown-item" href="/makeboard">투표글 작성하기</a>
           <a class="dropdown-item" href="/mypage">마이페이지</a>
           <a class="dropdown-item" href="/emailtoteam">운영자에 한마디</a>          
           <div class="dropdown-divider"></div>

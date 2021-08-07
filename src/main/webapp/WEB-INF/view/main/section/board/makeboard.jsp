@@ -15,6 +15,17 @@
   <h3>게시 질문 작성</h3>
 
     <form action="makeboard.do" method="POST">
+    	<div class="form-group">
+      <label for="exampleSelect1" class="form-label mt-4">Example select</label>
+      <select class="form-select" id="exampleSelect1" name="channel_num">      
+        <!-- --------------------------------------------- -->
+	    <c:forEach var="channel" items="${channelList}">		    	
+	    	<option class="text-danger" value="${channel.channel_num}"> <c:out value="${channel.channel_name}"/>,${channel.channel_num}</option>		    	    			
+		</c:forEach>
+	    <!-- --------------------------------------------- -->        
+	      </select>
+	    </div>
+    
       <div class="form-group">
         <label class="col-form-label mt-4" for="inputDefault">게시물 제목</label>
         <input type="text" class="form-control btn-outline-warning" placeholder="Default input" id="inputDefault" name="board_name">
@@ -34,8 +45,8 @@
       <br>
 
       <div class="float-end">
-        <button type="button" class="btn btn-outline-warning">만들기</button>&nbsp;
-        <button type="button" class="btn btn-outline-warning">뒤로가기</button>
+        <button type="submit" class="btn btn-outline-warning">만들기</button>&nbsp;
+        <button type="button" class="btn btn-outline-warning" onclick="location.href='javascript:history.back();'">뒤로가기</button>
       </div>
     </form>
     <br>
@@ -57,7 +68,7 @@
     <div class="col-lg-3"> <p class="text-muted">채널분야 : </p></div>
   </div>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-  <p class="text-secondary ">글내용 : Etiam porta sem malesuada magna mollis euismod.</p>
+  <p class="text-secondary ">글내용 : 배트맨 vs 슈퍼맨.</p>
   
 
   

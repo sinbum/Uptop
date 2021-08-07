@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+	<br>
     <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" id="toastshow">
       <div class="toast-header">
         <strong class="me-auto">Bootstrap</strong>
@@ -32,50 +32,8 @@
     </div>
 
   <!-- 링크 어사이드 -->   
+     <button type="button" class="btn btn-outline-warning col-12">생활</button>
 
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-primary">Primary</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
-        <div class="dropdown-menu " aria-labelledby="btnGroupDrop1" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 52px);">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-success">Success</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop2" style="">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-info">Info</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width: 100%;">
-      <button type="button" class="btn btn-danger">Danger</button>
-      <div class="btn-group" role="group">
-        <button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
-          <a class="dropdown-item" href="#">Dropdown link</a>
-          <a class="dropdown-item" href="#">Dropdown link</a>
-        </div>
-      </div>
-    </div>
 
     <!-- /링크 어사이드 -->
     

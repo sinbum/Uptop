@@ -59,7 +59,7 @@
     <!-- aside --> 
     <aside class="col-sm-2" id="#aside" >  
     	<jsp:include page="/WEB-INF/view/main/aside/mainaside.jsp"/>
-    </aside>
+    </aside><br><br><br>
     <!-- /aside -->
 
     <!-- section -->

@@ -17,7 +17,6 @@ import vo.BoardVO;
 import vo.TotalBoardVO;
 
 @Controller
-@RequestMapping(value="/board/")
 public class BoardController {
 	ModelAndView mv;
 	
@@ -32,7 +31,7 @@ public class BoardController {
 	mv= new ModelAndView();
 	}
   
-    @RequestMapping(value="getlist")
+    @RequestMapping(value="/board")
     public ModelAndView boardList(@RequestParam(defaultValue="1") int requestpagenum){ 
     	
     	// 전체리스트 개수 
@@ -43,8 +42,8 @@ public class BoardController {
         List<BoardVO> list = boardService.viewAll();        
         mv.addObject("boardslist",list);        
         mv.addObject("pagination", pagination);        
-        mv.addObject("main","maintest.jsp");
-        mv.setViewName("/WEB-INF/mainpage.jsp");
+        mv.addObject("section","/board/boardlist");
+        mv.setViewName("main");
         
         return mv;
     }
@@ -59,15 +58,15 @@ public class BoardController {
 		return mv;    	
     }
     
-    @RequestMapping("searchBoardNum")
+    @RequestMapping("/searchboardnum")
     public ModelAndView searchboardInfo(String boardNum) {  	
     	TotalBoardVO searchBboardInfo = boardService.searchBoardInfo(boardNum);
     	BoardDetailVO searchBoardDetail = boardService.searchBoardDetail(boardNum);
     	
     	mv.addObject("boardDetail",searchBoardDetail);
     	mv.addObject("boardInfo",searchBboardInfo);
-    	mv.addObject("main","board/board.jsp");
-    	mv.setViewName("/WEB-INF/mainpage.jsp");
+        mv.addObject("section","/board/boarddetail");
+        mv.setViewName("main");
 		return mv;    	
     }
     

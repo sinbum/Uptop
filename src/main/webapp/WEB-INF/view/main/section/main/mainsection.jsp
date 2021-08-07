@@ -11,7 +11,7 @@
     </div> 
   
     <div class="container-fluid ">   
-      <h3>주간 인기 게시판</h3>
+      <h4>주간 인기 게시판</h4>
       <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
           <div class="d-flex w-100 justify-content-between">
@@ -38,13 +38,13 @@
   
   
         <div class="row ">
-          <h3>최근에 올라온 게시판</h3>
+	      <h4>최근 게시판</h4>
   
             <div class="col-sm-6 col-md-6 col-lg-3 ">
               <div class="card border-secondary mb-3" style="max-width: 20rem;">
                 <div class="card-header">Header</div>
                 <div class="card-body">
-                  <h4 class="card-title">Secondary card title</h4>
+                  <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
               </div>
