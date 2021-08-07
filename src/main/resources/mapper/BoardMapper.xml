@@ -5,9 +5,33 @@
 	<select id="viewAll" resultType="vo.BoardVO">
 	SELECT * FROM board
 	</select>	
-	<select id="selectBoardList">	
-	</select>
-	
+	<!-- 시작 하는 게시글 인덱스 번 -->
+	<!--표시할 카운트가 5개. -->	
+	<select id="selectBoardList" resultType="vo.SelectBoardVO">	
+	 <!-- SELECT BOARD_NUM, BOARD_FIRSTKEYWORD, BOARD_SECONDKEYWORD, BOARD_NAME, BOARD_CONTENT, BOARD_DATE, CHANNEL_NUM, MEMBER_ID_FK from ( select BOARD_NUM, BOARD_FIRSTKEYWORD, BOARD_SECONDKEYWORD, BOARD_NAME, BOARD_CONTENT, BOARD_DATE, CHANNEL_NUM, MEMBER_ID_FK from ( select rownum as rwn,BOARD_NUM, BOARD_FIRSTKEYWORD, BOARD_SECONDKEYWORD, BOARD_NAME, BOARD_CONTENT, BOARD_DATE, CHANNEL_NUM, MEMBER_ID_FK from (select * from board order by board_num desc))where rwn <![CDATA[ >= ]]> #{startIndex} )where rownum <![CDATA[ <= ]]> #{pageSize} -->
+	 
+    <![CDATA[
+	    select BOARD_NUM, BOARD_FIRSTKEYWORD, BOARD_SECONDKEYWORD, BOARD_NAME, BOARD_CONTENT, BOARD_DATE, CHANNEL_NUM
+	from
+	(
+	    
+	    select BOARD_NUM, BOARD_FIRSTKEYWORD, BOARD_SECONDKEYWORD, BOARD_NAME, BOARD_CONTENT, BOARD_DATE, CHANNEL_NUM
+	from
+	(   
+	    select rownum as rwn,BOARD_NUM, BOARD_FIRSTKEYWORD, BOARD_SECONDKEYWORD, BOARD_NAME, BOARD_CONTENT, BOARD_DATE, CHANNEL_NUM   
+	    from
+	        (
+	            select * from board order by board_num desc
+	        )
+	) 
+	where rwn >= #{startIndex}     
+	)where rownum <= #{pageSize}
+	       
+    ]]>
+	 
+	 
+	 	
+	</select>	
 	<select id="getMaxCount" resultType="int">
 	select count(*) from board
 	</select>

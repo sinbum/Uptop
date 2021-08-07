@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>UpTop!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -28,6 +28,8 @@
     });
 
   });
+  
+  
   </script>
 
  
@@ -40,14 +42,13 @@
   font-family: gs; 
   font-weight: lighter;
   }
-  body {
-  font-family: gs;
-  } 
+
 
 </style>
 
 </head>
-<body>  
+<body>
+<div class="wrap">
   <main class="row justify-content-around">    <!-- main -->
     
     <!-- nav -->    
@@ -57,23 +58,24 @@
     <!-- /nav -->
 
     <!-- aside --> 
-    <aside class="col-sm-2" id="#aside" >  
+    <aside class="col-sm-2" id="#aside" ${asidestyle}>  
     	<jsp:include page="/WEB-INF/view/main/aside/mainaside.jsp"/>
     </aside><br><br><br>
     <!-- /aside -->
 
     <!-- section -->
     <section class=" col-sm-8"> 
-      <jsp:include page="/WEB-INF/view/main/section/${section}.jsp"/>
+      <jsp:include page="/WEB-INF/view/main/section/${section}.jsp"/>      
      </section>
      <!-- /section -->
 
    
     <!-- footer -->    
-    <footer>    
+    <footer class=" col-sm-12 m-auto">    
     	<jsp:include page="/WEB-INF/view/footer/footer.jsp"/>
     </footer>   
     <!-- /footer -->
   </main> <!-- /main -->
+  </div>
 </body>
 </html>

@@ -18,6 +18,7 @@ import service.BoardServiceImple;
 import service.MainServiceImple;
 import vo.BoardChannelVO;
 import vo.BoardVO;
+import vo.SelectBoardVO;
 
 @Controller
 public class MainController {
@@ -29,22 +30,45 @@ public class MainController {
 	
 	@Autowired
 	@Qualifier("bs")
-	BoardServiceImple boardservice;
+	BoardServiceImple boardservice;	
 	
 	public MainController() {
-		mv= new ModelAndView();
+		mv= new ModelAndView();		
 	}
 	
 	@RequestMapping("/index")
 	public ModelAndView index(@RequestParam(defaultValue="1") int requestpagenum) {
+		//aside display : none > display on;설정이 처음에 드러나게
+		mv.addObject("asidestyle","");
+	
 		
 		// 전체리스트 개수 
         int listCnt = boardservice.getMaxCount();
         
+        //페이지네이션 계산 처리
         Pagination pagination = new Pagination(listCnt, requestpagenum);
+        
+        //전체 등록된 게시물 개수
+        System.out.println("리스트 개수 :" + listCnt);        
+        
+        //시작하는 게시글 번호
+        System.out.println("시작하는 게시글 번호"+pagination.getStartIndex());
+        
+       
+        //한페이지당 게시글 수
+        System.out.println("한페이지당 게시글 수"+pagination.getPageSize());
+
+        
         // 전체리스트 출력        
-        List<BoardVO> list = boardservice.viewAll();        
-        mv.addObject("boardslist",list);        
+        //List<BoardVO> list = boardservice.viewAll();
+        
+        // 페이지네이션한 게시글 출력
+//        List<BoardVO> list = boardservice.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
+        List<SelectBoardVO> list = boardservice.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
+        mv.addObject("boardslist",list);
+        
+        System.out.println(list);
+        
         mv.addObject("pagination", pagination);        
         mv.addObject("section","main/mainsection");
 		mv.setViewName("main");
@@ -53,10 +77,12 @@ public class MainController {
 	
 	@RequestMapping("/login")
 	public ModelAndView login() {
+		mv.addObject("asidestyle","style=\"display:none;\"");
 		
 		mv.addObject("section","login/login");	
 		mv.setViewName("main");
 		return mv;
+
 	}
 	
 	
@@ -88,7 +114,8 @@ public class MainController {
 	
 	
 	@RequestMapping("/signin")
-	public ModelAndView signin() {		
+	public ModelAndView signin() {	
+		mv.addObject("asidestyle","style=\"display:none;\"");
 		mv.addObject("section","signin/signin");
 		mv.setViewName("main");
 		return mv;
@@ -111,7 +138,7 @@ public class MainController {
 		String memberId =(String) response.getSession().getAttribute("id");		
 		List <BoardChannelVO> channelList=mainservice.getChannelList(memberId);
 		System.out.println(channelList);
-		
+		mv.addObject("asidestyle","style=\"display:none;\"");
 		mv.addObject("channelList",channelList);
 		System.out.println(channelList.size());
 		if(channelList.size()==0) {
@@ -159,6 +186,8 @@ public class MainController {
 	@RequestMapping("/makechannel")
 	public ModelAndView makeChannel() {		
 		mv.addObject("section","channel/makechannel");
+		mv.addObject("asidestyle","style=\"display:none;\"");
+
 		mv.setViewName("main");
 		return mv;
 	}
@@ -183,6 +212,8 @@ public class MainController {
 	
 	@RequestMapping("/mypage")
 	public ModelAndView myPage(HttpServletRequest request) {
+		mv.addObject("asidestyle","style=\"display:none;\"");
+
 		String sessionId=(String)request.getSession().getAttribute("id");
 		//System.out.println(sessionId);
 	

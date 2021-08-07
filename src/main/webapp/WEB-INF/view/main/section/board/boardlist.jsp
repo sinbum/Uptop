@@ -6,7 +6,12 @@
  
 <!-- 섹션 -->
 <!-- <section class=" col-sm-8"> -->
-  
+  <br>
+    <div class="breadcrumb justify-content-end">
+      <div class="breadcrumb-item"><a href="/index">Home</a></div>      
+      <div class="breadcrumb-item active">Board</div>
+    </div> 
+    
 <c:forEach var="board" items="${boardslist}" varStatus="idx" end="200">
   
   <div class="card">

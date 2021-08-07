@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
+
 
 	<br>
     <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" id="toastshow">
@@ -12,7 +16,7 @@
         </button>
       </div>
       <div class="toast-body">
-        Hello, world! This is a toast message.
+        Hello, world! This is a toast message.		 
       </div>
     </div><br>
 

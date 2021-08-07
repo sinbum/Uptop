@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import config.mapper.BoardMapper;
 import vo.BoardDetailVO;
 import vo.BoardVO;
+import vo.SelectBoardVO;
 import vo.TotalBoardVO;
 
 @Service
@@ -24,8 +25,8 @@ public class BoardServiceImple implements BoardService{
 	}
 
 	@Override
-	public List<BoardVO> selectBoardList(int startIndex, int pageSize) {
-		return null;
+	public List<SelectBoardVO> selectBoardList(int startIndex, int pageSize) {
+		return mapper.selectBoardList(startIndex, pageSize);
 	}
 
 	@Override

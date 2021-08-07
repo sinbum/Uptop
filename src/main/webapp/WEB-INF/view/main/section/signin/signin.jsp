@@ -5,11 +5,14 @@
  
 <!-- 섹션 -->
  <!-- <section class=" col-sm-8"> -->
-  <ol class="breadcrumb justify-content-start">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active">Data</li>
-  </ol>  
+ <br>
+    <div class="breadcrumb justify-content-end">
+      <div class="breadcrumb-item"><a href="/index">Home</a></div>      
+      <div class="breadcrumb-item"><a href="/login">Login</a></div>
+      <div class="breadcrumb-item active">Signin</div>
+    </div> 
+ 
+
   <form action="signin.do">
     <fieldset>
       <legend>회원가입</legend>

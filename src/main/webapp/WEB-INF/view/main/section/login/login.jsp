@@ -6,10 +6,11 @@
  
 <!-- 섹션 -->
  <!-- <section class=" col-sm-8" style="height: 500px;"> -->
-  <ol class="breadcrumb justify-content-start">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>    
-    <li class="breadcrumb-item active">Login</li>
-  </ol>  
+ <br>
+    <div class="breadcrumb justify-content-end">
+      <div class="breadcrumb-item"><a href="/index">Home</a></div>      
+      <div class="breadcrumb-item active">Login</div>
+    </div> 
   
   <form action="/login.do" method="POST">   
   <div class="form-group">
@@ -28,7 +29,7 @@
   
   <div class="form-group d-grid gap-2">
     <button class="btn btn-lg btn-outline-info" type="submit">로그인</button>
-    <button class="btn btn-lg btn-outline-info" type="button" onclick="loaction.href='/signin">회원가입</button>
+    <button class="btn btn-lg btn-outline-info" type="button" onclick="location.href='/signin'">회원가입</button>
   </div>
 </form><br>
 <div class="float-end">

@@ -26,15 +26,15 @@
 <!-- <section class=" col-sm-8">  섹션 시작-->
 
 <div class="row m-auto">
-<h2>슈퍼맨이 돌아왔다</h2>
+<h2>${boardInfo.board_name}</h2>
 <div class="row">
-  <div class="col-lg-3"> <p class="text-muted">조회수 : </p></div>
-  <div class="col-lg-3"> <p class="text-muted">등록날짜 : </p></div>
-  <div class="col-lg-3"> <p class="text-muted">채널명 : </p></div>
-  <div class="col-lg-3"> <p class="text-muted">채널분야 : </p></div>
+  <div class="col-lg-3"> <p class="text-muted">조회수 : ${boardDetail.boardcount}</p></div>
+  <div class="col-lg-3"> <p class="text-muted">등록날짜 : ${boardInfo.board_date}</p></div>
+  <div class="col-lg-3"> <p class="text-muted">작성자 : ${boardInfo.member_id_fk}</p></div>
+  <div class="col-lg-3"> <p class="text-muted">분야 : ${boardInfo.channel_category}</p></div>
 </div>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-<p class="text-warning">글내용 : Etiam porta sem malesuada magna mollis euismod.</p>
+<p class="text-warning">글내용 : ${boardInfo.board_content}</p>
 
 
 
@@ -44,19 +44,19 @@
 <div class="card" style="height: 200px;">
   <div class="row m-auto" style="width: 90%;">
     <div class="col-6 m-auto">
-      <button type="button" id="firstkeyword" class="btn btn-outline-info col-11" style="height: 150px; ">투표1</button>  
+      <button type="button" id="firstkeyword" class="btn btn-outline-info col-11" style="height: 150px; ">${boardInfo.board_firstkeyword}</button>  
     </div>
     <div class="col-6 m-auto">
-      <button type="button" id="secondkeyword" class="btn btn-outline-primary col-11" style="height: 150px; ">투표2</button>
+      <button type="button" id="secondkeyword" class="btn btn-outline-primary col-11" style="height: 150px; ">${boardInfo.board_secondkeyword}</button>
     </div>
   </div>
 </div><br>
 <div class="row justify-content-end">  
   <div class="col-3">
-    <i class="far fa-thumbs-up" style="font-size: 20px; cursor: pointer;" >&nbsp&nbsp<span>10</span></i>
+    <i class="far fa-thumbs-up" style="font-size: 20px; cursor: pointer;" >&nbsp&nbsp<span>${boardDetail.boardlike}</span></i>
   </div>
   <div class="col-3">
-    <i class="far fa-thumbs-down" style="font-size: 20px; cursor: pointer;">&nbsp&nbsp<span>3</span></i>
+    <i class="far fa-thumbs-down" style="font-size: 20px; cursor: pointer;">&nbsp&nbsp<span>${boardDetail.boardhate}</span></i>
   </div>
 </div>
 <div><br></div>
@@ -66,10 +66,10 @@
 <div class="row m-auto">  
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title text-muted">Card title</h4>
-      <h6 class="card-subtitle mb-2 text-secondary">Card subtitle</h6>
+      <h4 class="card-title text-muted">${boardInfo.channel_name }</h4>      
+      <h6 class="card-subtitle mb-2 text-secondary">채널등급 : Top Class</h6>
       <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link text-muted">채널정보</a>      
+      <a href="#" class="card-link text-muted">채널정보 더보기</a>      
     </div>
   </div>
 </div>

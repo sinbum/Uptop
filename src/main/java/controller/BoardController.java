@@ -33,13 +33,14 @@ public class BoardController {
   
     @RequestMapping(value="/board")
     public ModelAndView boardList(@RequestParam(defaultValue="1") int requestpagenum){ 
-    	
+		mv.addObject("asidestyle","style=\"display:none;\"");
+
     	// 전체리스트 개수 
         int listCnt = boardService.getMaxCount();
         
         Pagination pagination = new Pagination(listCnt, requestpagenum);
         // 전체리스트 출력        
-        List<BoardVO> list = boardService.viewAll();        
+        List<BoardVO> list = boardService.viewAll();
         mv.addObject("boardslist",list);        
         mv.addObject("pagination", pagination);        
         mv.addObject("section","/board/boardlist");
@@ -51,7 +52,8 @@ public class BoardController {
     @RequestMapping("selectboard")/*아이디와,채널명을받아옴.*/
     public ModelAndView test() {
     	mv.addObject("boardslist",boardService.viewAll());      
-    	
+		mv.addObject("asidestyle","style=\"display:none;\"");
+
     	mv.addObject("main","maintest2.jsp");    	
        mv.setViewName("/WEB-INF/mainpage.jsp");    	
     	
@@ -65,6 +67,7 @@ public class BoardController {
     	
     	mv.addObject("boardDetail",searchBoardDetail);
     	mv.addObject("boardInfo",searchBboardInfo);
+    	
         mv.addObject("section","/board/boarddetail");
         mv.setViewName("main");
 		return mv;    	
