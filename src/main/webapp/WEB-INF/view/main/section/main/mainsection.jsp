@@ -10,7 +10,7 @@
 			 $(".boardname").click(function(){				
 	            //alert(boardNum);
 	                var boardNum = $(this).attr("value");
-			      location.href='/board/searchBoardNum?boardNum='+boardNum;
+			      location.href='/searchboardnum?boardNum='+boardNum;			      
 				});			
 			
 		}); 

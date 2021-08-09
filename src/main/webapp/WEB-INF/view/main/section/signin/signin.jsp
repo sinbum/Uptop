@@ -49,7 +49,7 @@
 
       <div class="d-grid gap-2">
         <button class="btn btn-lg btn-primary" type="submit">회원가입</button>
-      </div>
+      </div> <br>
 
     </fieldset>      
     

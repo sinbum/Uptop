@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -236,6 +237,18 @@ public class MainController {
 		return mv;		
 	}
 	
+	@RequestMapping("/themechange")
+	public void themeChange(String theme,HttpServletRequest request,HttpServletResponse response) {
+		Cookie themeCookie = new Cookie("theme",theme);
+		System.out.println(themeCookie.getValue());
+		response.addCookie(themeCookie);
+		try {
+			response.sendRedirect("/mypage");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
 		
 	
 	

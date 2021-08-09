@@ -17,9 +17,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" id="asidetoggle">사이드</a>
+        <a class="nav-link" href="#" id="asidetoggle">공지사항</a>
       </li>
-      <li class="nav-item">
+      <li claㅋss="nav-item">
         <a class="nav-link" href="/board">투표보드</a>
       </li>
       <li class="nav-item">

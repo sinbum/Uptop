@@ -207,17 +207,60 @@
     
 		  <!-- 게시판을 설정하는 부분. 쿠키값으로 테마변경하기. -->
 		  
-		
-		 <div class="tab-pane fade" id="setting">
-		        <br>
-		        <h3>설정</h3>
-		        <p>테마,기본설정 등을 설정합니다.</p>     
-		     
-		
-		
-		    
-		    
-		 </div>
+	 <div class="tab-pane fade" id="setting">
+        <br>
+        <p>테마,기본설정 등을 설정합니다.</p>
+        <br>
+        
+        
+        <h4>테마설명</h5>
+        <h6>Quartz</h6>
+        <p>알록하고 다채로운색상의 가장 운영자가 가장 선호하는 테마입니다.</p>
+                
+        <h6>Vapor</h6>        
+        <p>화려한 네온색상을 입혀 미래지향적인 느낌을 표현하는 테마입니다. 두번째로 가장 인기있는 테마입니다.</p>
+               
+        <h6>Flatly</h6>
+        <p>기본적인 화이트 색상의 테마를 표현합니다.</p>        
+        
+        <h6>Darkly</h6>
+        <p>다크모드를 자주 사용하시는 분들께 추천합니다.</p>
+        
+        
+        
+        
+        <form action="/themechange">
+		<fieldset class="form-group">
+		  <legend class="mt-4">테마선택하기</legend>
+			  <div class="form-check">
+			    <label class="form-check-label">
+			      <input type="radio" class="form-check-input" name="theme" id="optionsRadios1" value="quartz" checked="">		      
+			      quartz
+			    </label>
+			  </div>
+			  <div class="form-check">
+			    <label class="form-check-label">
+			      <input type="radio" class="form-check-input" name="theme" id="optionsRadios2" value="vapor">
+			      vapor
+			    </label>
+			  </div>
+			  
+			  <div class="form-check">
+			    <label class="form-check-label">
+			      <input type="radio" class="form-check-input" name="theme" id="optionsRadios2" value="flatly">
+			      flatly
+			    </label>
+			  </div>
+			  <div class="form-check">
+			    <label class="form-check-label">
+			      <input type="radio" class="form-check-input" name="theme" id="optionsRadios2" value="darkly">
+			      darkly
+			    </label>
+			  </div><br>
+			  <button type="submit" class="btn btn-dark">저장</button>			  
+		</fieldset> 
+		</form>
+	 </div>
     
   </div>
   <div><br></div>
