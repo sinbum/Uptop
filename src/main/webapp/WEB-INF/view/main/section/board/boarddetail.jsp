@@ -24,7 +24,7 @@
 -->
 
 <!-- <section class=" col-sm-8">  섹션 시작-->
-
+<br>
 <div class="row m-auto">
 <h2>${boardInfo.board_name}</h2>
 <div class="row">
@@ -74,18 +74,17 @@
   </div>
 </div>
 
-<hr>
+<br>
 
 <div class="float-end">
 <button type="button" class="btn btn-outline-light ">다른글 목록보기</button>
 <button type="button" class="btn btn-outline-light ">뒤로가기</button>
 </div>
+<div><br></div>
+<div><br></div>
 
+<hr>
 
-
-   
-   
-   
    
 <!-- </section> -->
 
