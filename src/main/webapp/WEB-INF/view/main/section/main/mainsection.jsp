@@ -3,27 +3,7 @@
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- <section class=" col-sm-8"> -->
-  	<script>
-		/*jquery를 사용한 함수 호출.  */
-		$(document).ready(function(){	
-			
-			 $(".boardname").click(function(){				
-	            //alert(boardNum);
-	                var boardNum = $(this).attr("value");
-			      location.href='/searchboardnum?boardNum='+boardNum;			      
-				});			
-			
-		}); 
-		
-		
-		/* 자바스크립트를 사용한 호출. */
-		function fn_paging(number){
-			//alert(number);
-			location.href="/index?requestpagenum="+number;			
-			
-		}		
-		
-</script>
+  
   
   	<br>
     <div class="breadcrumb justify-content-end">

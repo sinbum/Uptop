@@ -31,7 +31,7 @@
 	</c:if>
 
   
-  <script>
+<script>
   $(document).ready(function(){
     $("#toastshowclose").click(function(){      
       $("#toastshow").hide();
@@ -43,13 +43,31 @@
     
   });
   
-
+  //페이지네이션,보드와 인덱스보드의 공통사용 js
   
-  //val themecookie=$.cookie('theme');
-  /* alert($.cookie('theme')); */
-
-  
-  </script>
+	/*jquery를 사용한 함수 호출.  */
+	$(document).ready(function(){	
+		
+		 $(".boardname").click(function(){				
+          //alert(boardNum);
+              var boardNum = $(this).attr("value");
+		      location.href='/searchboardnum?boardNum='+boardNum;			      
+			});			
+		
+	}); 	
+	/* 자바스크립트를 사용한 호출. */
+	function fn_paging(number){
+		//alert(number);
+		location.href="/index?requestpagenum="+number;		
+		
+	}
+	function fn_board_paging(number){
+		//alert(number);
+		location.href="/board?requestpagenum="+number;		
+		
+	}
+	
+</script>
 
  
 <style>

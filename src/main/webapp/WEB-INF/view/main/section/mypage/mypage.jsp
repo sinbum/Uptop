@@ -209,9 +209,10 @@
 		  
 	 <div class="tab-pane fade" id="setting">
         <br>
+        
+        <h4>현재 적용된 테마 : ${cookie.theme.value}</h4> 
         <p>테마,기본설정 등을 설정합니다.</p>
         <br>
-        
         
         <h4>테마설명</h5>
         <h6>Quartz</h6>

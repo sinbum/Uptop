@@ -14,6 +14,7 @@ import service.BoardServiceImple;
 import service.MainServiceImple;
 import vo.BoardDetailVO;
 import vo.BoardVO;
+import vo.SelectBoardVO;
 import vo.TotalBoardVO;
 
 @Controller
@@ -39,10 +40,17 @@ public class BoardController {
         int listCnt = boardService.getMaxCount();
         
         Pagination pagination = new Pagination(listCnt, requestpagenum);
+       
+        //한페이지당 7개글 게시.
+        //pagination.setPageSize(7);
+        
+        List<SelectBoardVO> list = boardService.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
+
+               
         // 전체리스트 출력        
-        List<BoardVO> list = boardService.viewAll();
+        //List<BoardVO> list = boardService.viewAll();
         mv.addObject("boardslist",list);        
-        mv.addObject("pagination", pagination);        
+        mv.addObject("pagination", pagination);
         mv.addObject("section","/board/boardlist");
         mv.setViewName("main");
         

@@ -12,7 +12,7 @@
       <figcaption class="blockquote-footer">
         Someone famous in <cite title="Source Title">Source Title</cite>
       </figcaption>
-      <button type="button" class="btn btn-outline-success">Success</button>
+      <button type="button" class="btn btn-outline-success">더보기</button>
   
     </figure>
     <figure class="col-sm-4 col-12">    <blockquote class="blockquote">
@@ -22,8 +22,8 @@
       <figcaption class="blockquote-footer">
         Someone famous in <cite title="Source Title">Source Title</cite>
       </figcaption>
-      <button type="button" class="btn btn-outline-info">Info</button>
-      <button type="button" class="btn btn-outline-info">Info</button>
+      <a href="https://github.com/sinbum/Uptop"><button type="button" class="btn btn-outline-info">깃허브</button></a>
+      <a href="https://sinbum.notion.site/Up-Top_Java-Web-Project-d24a80bcc53d41f2861bccdf809f5f26"><button type="button" class="btn btn-outline-info">노션</button></a>
   
   
     </figure>
@@ -34,7 +34,7 @@
       <figcaption class="blockquote-footer">
         Someone famous in <cite title="Source Title">Source Title</cite>
       </figcaption>
-      <button type="button" class="btn btn-outline-danger">Danger</button>
+      <button type="button" class="btn btn-outline-danger">더보기</button>
   
     </figure>
   </div>
