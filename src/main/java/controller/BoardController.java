@@ -46,7 +46,16 @@ public class BoardController {
         
         List<SelectBoardVO> list = boardService.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
 
-               
+        //전체 등록된 게시물 개수
+        System.out.println("리스트 개수 :" + listCnt);        
+        
+        //시작하는 게시글 번호
+        System.out.println("시작하는 게시글 번호"+pagination.getStartIndex());
+        
+       
+        //한페이지당 게시글 수
+        System.out.println("한페이지당 게시글 수"+pagination.getPageSize());
+        
         // 전체리스트 출력        
         //List<BoardVO> list = boardService.viewAll();
         mv.addObject("boardslist",list);        
