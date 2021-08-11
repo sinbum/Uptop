@@ -2,7 +2,43 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script>
+var ws=new WebSocket("ws://localhost:7070/websocket")
+ws.onmessage=onMessage;
 
+function onMessage(msg){
+	var data=msg.data;
+	//alert(data);
+	/*
+	if(data=="1"){
+		//div 빨강색 박스를 만들고 화면에 나타나는 작업
+		document.getElementById("notice").style.visibility="visible";
+		document.getElementById("notice").innerHTML=data;
+		
+	}else{
+		//div 빨강색 박스를 사라지는 작업
+		document.getElementById("notice").style.visibility="hidden";
+	}
+	*/
+	var notice = document.getElementById("notice");
+	var reply = document.getElementById("reply"); 
+	var command = document.getElementById("command");
+	
+	notice.style.visibility="visible";
+	reply.innerText+="사용자 : "+data+"\n";
+	command.value="";
+	notice.scrollTop=notice.scrollHeight;
+
+	
+	
+}
+
+function command(){
+	var cmd=document.getElementById("command").value;
+	ws.send(cmd)
+}
+
+</script>
 
 
 
@@ -32,14 +68,22 @@
 
     <div class="alert alert-dismissible alert-success">
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>잘하셨어요!</strong> 앞으로는 더많은 서비스를 이용 할 수 있습니다!
-     
+      <strong>잘하셨어요!</strong> 앞으로는 더많은 서비스를 이용 할 수 있습니다!     
     </div>
+	
 
+	<div id="notice" style="overflow-y: auto; height:150px; word-brake:brake-all; width:100%; display: block;" class="btn-outline-secondary">
+		<div id="reply"></div>
+	</div>
+	
+	<div class="row">  
+	  <input type="text" class="form-control col-3" onKeypress="javascript:if(event.keyCode==13) {command()}" placeholder="보낼메세지" name="command" id="command">
+	  <!-- <button type="button" class="btn btn-outline-warning col-3" onclick="command()">전송</button> -->
+	</div>
+	
+	<!-- <input type="text" name="command" id="command" class=""> -->
+	<!-- <button type="button" class="btn btn-outline-warning col-3" onclick="command()">전송</button> --><br>
+	
+	
 
-  <!-- 링크 어사이드 -->   
-     <button type="button" class="btn btn-outline-warning col-12">생활</button>
-
-
-    <!-- /링크 어사이드 -->
-    
+  

@@ -3,6 +3,9 @@ package service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.annotations.Param;
 
 import vo.BoardChannelVO;
@@ -38,7 +41,7 @@ public interface MainService {
 	
 	public List<BoardVO> getBoardlist(String sessionId);
 
-
+	public void themeChange(String theme, HttpServletRequest request, HttpServletResponse response);
 	
 
 }

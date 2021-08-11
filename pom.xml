@@ -124,7 +124,19 @@
     <scope>provided</scope>
 </dependency>
 
-	
+<!-- 스프링 웹소켓 추가 -->
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>5.3.9</version>
+</dependency>
+
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-websocket</artifactId>
+<version>9.0.48</version>
+</dependency>
 			
   
   </dependencies>

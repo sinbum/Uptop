@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -39,7 +38,8 @@ public class MainController {
 	
 	@RequestMapping("/index")
 	public ModelAndView index(@RequestParam(defaultValue="1") int requestpagenum) {
-		//aside display : none > display on;설정이 처음에 드러나게
+		//aside display : none > display on
+		//index 페이지에 접속할 경우 <aside>상태가 노출되게 설정.
 		mv.addObject("asidestyle","");
 	
 		
@@ -54,32 +54,33 @@ public class MainController {
         
         //시작하는 게시글 번호
         System.out.println("시작하는 게시글 번호"+pagination.getStartIndex());
-        
-       
+               
         //한페이지당 게시글 수
         System.out.println("한페이지당 게시글 수"+pagination.getPageSize());
 
-        
-        // 전체리스트 출력        
-        //List<BoardVO> list = boardservice.viewAll();
+              
         
         // 페이지네이션한 게시글 출력
-//        List<BoardVO> list = boardservice.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
-        List<SelectBoardVO> list = boardservice.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
+        List<SelectBoardVO> list 
+				= boardservice.selectBoardList
+				(
+				pagination.getStartIndex(), 
+				pagination.getPageSize()
+				);
+
         mv.addObject("boardslist",list);
         
         System.out.println(list);
         
         mv.addObject("pagination", pagination);        
         mv.addObject("section","main/mainsection");
-		mv.setViewName("main");
-		return mv;
+				mv.setViewName("main");
+				return mv;
 	}
 	
 	@RequestMapping("/login")
 	public ModelAndView login() {
-		mv.addObject("asidestyle","style=\"display:none;\"");
-		
+		mv.addObject("asidestyle","style=\"display:none;\"");		
 		mv.addObject("section","login/login");	
 		mv.setViewName("main");
 		return mv;
@@ -88,7 +89,7 @@ public class MainController {
 	
 	
 	@RequestMapping("/login.do")
-	public ModelAndView logindo(String id,String password,HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView loginDo(String id,String password,HttpServletRequest request,HttpServletResponse response) {
 		if(mainservice.loginCheck(id,password)==1) {
 			//로그인성공
 			request.getSession().setAttribute("id", id);
@@ -238,16 +239,8 @@ public class MainController {
 	}
 	
 	@RequestMapping("/themechange")
-	public void themeChange(String theme,HttpServletRequest request,HttpServletResponse response) {
-		Cookie themeCookie = new Cookie("theme",theme);
-		System.out.println(themeCookie.getValue());
-		response.addCookie(themeCookie);
-		try {
-			response.sendRedirect("/mypage");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+	public void themeChange(String theme,HttpServletRequest request,HttpServletResponse response) {		
+		mainservice.themeChange(theme,request,response);
 	}
 		
 	

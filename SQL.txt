@@ -146,10 +146,11 @@ commit;
 
 
 select * from board where board_num=4;
+
 select board.*,channel.* from board,channel;
+
 select * from board_detail;
 
-create view gettotalboardvo as
 select 
 --보드 vo--
 board.BOARD_NUM, board.BOARD_FIRSTKEYWORD, board.BOARD_SECONDKEYWORD, board.BOARD_NAME, board.BOARD_CONTENT, board.BOARD_DATE, board.CHANNEL_NUM, board.MEMBER_ID_FK,
