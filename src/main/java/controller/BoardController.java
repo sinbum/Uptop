@@ -2,16 +2,22 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import paging.Pagination;
 import service.BoardService;
 import service.BoardServiceImple;
+import service.MainService;
 import service.MainServiceImple;
+import vo.BoardDetail2VO;
 import vo.BoardDetailVO;
 import vo.BoardVO;
 import vo.SelectBoardVO;
@@ -22,11 +28,11 @@ public class BoardController {
 	ModelAndView mv;
 	
 	@Autowired
-	MainServiceImple mainservice;
+	MainService mainService;
 
 	@Autowired
 	@Qualifier("bs")
-	BoardServiceImple boardService;
+	BoardService boardService;
 	
 	public BoardController() {
 	mv= new ModelAndView();
@@ -35,34 +41,18 @@ public class BoardController {
     @RequestMapping(value="/board")
     public ModelAndView boardList(@RequestParam(defaultValue="1") int requestpagenum){ 
 		mv.addObject("asidestyle","style=\"display:none;\"");
-
     	// 전체리스트 개수 
-        int listCnt = boardService.getMaxCount();
-        
-        Pagination pagination = new Pagination(listCnt, requestpagenum);
-       
+        int listCnt = boardService.getMaxCount();        
+        Pagination pagination = new Pagination(listCnt, requestpagenum);       
         //한페이지당 7개글 게시.
-        //pagination.setPageSize(7);
-        
-        List<SelectBoardVO> list = boardService.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());
-
-        //전체 등록된 게시물 개수
-        System.out.println("리스트 개수 :" + listCnt);        
-        
-        //시작하는 게시글 번호
-        System.out.println("시작하는 게시글 번호"+pagination.getStartIndex());
-        
-       
-        //한페이지당 게시글 수
-        System.out.println("한페이지당 게시글 수"+pagination.getPageSize());
-        
+        //pagination.setPageSize(7);        
+        List<SelectBoardVO> list = boardService.selectBoardList(pagination.getStartIndex(), pagination.getPageSize());        
         // 전체리스트 출력        
         //List<BoardVO> list = boardService.viewAll();
         mv.addObject("boardslist",list);        
         mv.addObject("pagination", pagination);
         mv.addObject("section","/board/boardlist");
-        mv.setViewName("main");
-        
+        mv.setViewName("main");        
         return mv;
     }
     
@@ -70,7 +60,6 @@ public class BoardController {
     public ModelAndView test() {
     	mv.addObject("boardslist",boardService.viewAll());      
 		mv.addObject("asidestyle","style=\"display:none;\"");
-
     	mv.addObject("main","maintest2.jsp");    	
        mv.setViewName("/WEB-INF/mainpage.jsp");    	
     	
@@ -80,14 +69,33 @@ public class BoardController {
     @RequestMapping("/searchboardnum")
     public ModelAndView searchboardInfo(String boardNum) {  	
     	TotalBoardVO searchBboardInfo = boardService.searchBoardInfo(boardNum);
-    	BoardDetailVO searchBoardDetail = boardService.searchBoardDetail(boardNum);
-    	
+    	BoardDetailVO searchBoardDetail = boardService.searchBoardDetail(boardNum);    	
     	mv.addObject("boardDetail",searchBoardDetail);
-    	mv.addObject("boardInfo",searchBboardInfo);
-    	
+    	mv.addObject("boardInfo",searchBboardInfo);    	
         mv.addObject("section","/board/boarddetail");
         mv.setViewName("main");
 		return mv;    	
+    }
+    
+    @RequestMapping("/putlikehate")
+    public ModelAndView likehate(String boardnum,String likehate,HttpServletRequest request) {
+    	boolean putLH;
+    	String id = (String) request.getSession().getAttribute("id");
+    	
+    	if(boardService.likeIdCheck(boardnum,id)) {
+    		if(putLH=boardService.insertValue(boardnum,likehate,id)) {
+    			mv.addObject("like",boardService.getLike(boardnum));
+    			mv.addObject("hate",boardService.getHate(boardnum));
+    		}else{
+    			mv.addObject("Result","등록중 문제가 생겼습니다.");    			
+    			System.out.println("등록실패");
+    		}    		
+    	}else{    		
+    		mv.addObject("result",likehate + "를 이미 누르셨습니다.");
+    	}
+    	    	
+		return mv;    	
+    	
     }
     
     

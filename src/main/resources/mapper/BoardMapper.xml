@@ -49,4 +49,8 @@
 	</select>
 	
 	
+	<!-- <select id="likeIdCheck" resultType="int">
+	
+	</select> -->
+	
 </mapper>
