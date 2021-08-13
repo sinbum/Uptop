@@ -105,31 +105,50 @@ select count(*) from board;
 
 --게시판 조회수,좋아요,싫어요를 기본 게시판번호를 참조하여 테이블생성.
 
+drop table board_detail2;
 
-CREATE table board_detail(
-BOARD_DETAIL_NUM NUMBER(19) references board(board_num) CONSTRAINT board_detail_num primary key,
-BOARD_COUNT NUMBER(19),
-BOARD_LIKE NUMBER(19),
-BOARD_HATE NUMBER(19)
+--좋아요 싫어요 테이블 생성
+create table Board_detail2(
+boardnum int references board(board_num),
+likehate varchar2(10),
+Idlist varchar2(30) references member(id),
+constraint ck_likehate check(likehate = 'like' or likehate='hate')
 );
-insert into board_detail values (1,200,2,20);
+
+--like id 체크
+--좋아요 or 싫어요를 눌렀는지 확인하는 문장. 
+--있으면 1을 반환 없으면 0을반환 하도록 함.
+select count(*) from board_detail2 where boardnum=1 and idlist='csbzero1';
+
+-- 좋아요 누르기
+insert into board_detail2 values (1,'like','csbzero1');
+insert into board_detail2 values (1,'like','user1');
+
+--좋아요 취소
+delete from board_detail2 where boardnum=1 and idlist='csbzero1';
+
+--해당게시글의 좋아요 개수 체크
+select count(*) from board_detail2 where boardnum=1 and likehate='like';
+
+--해당게시글의 싫어요 개수 체크
+select count(*) from board_detail2 where boardnum=1 and likehate='hate';
+
+commit;
 
 
---좋아요를 눌렀을때에 좋아요 한개를 추가함.
-update board_detail
-set board_like = board_like + 1
-where board_detail_num = 1;
 
---싫어요 눌렀을때 싫어요를 추가
---좋아요를 눌렀을때에 좋아요 한개를 추가함.
-update board_detail
-set board_like = board_like - 1
-where board_detail_num = 1; --어느 게시판 번호인지를 확인.
+
+
+
+
 
 --클릭했을때 게시물을 클릭했을때 조회수를 추가하도록 함.
-update board_detail
-set BOARD_COUNT = BOARD_COUNT + 1
-where board_detail_num = 1;
+테이블 새로 생성.
+
+
+
+
+
 
 
 --게시판 번호,유저아이디,댓글내용,좋아요,싫어요
