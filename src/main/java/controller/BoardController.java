@@ -78,23 +78,32 @@ public class BoardController {
     }
     
     @RequestMapping("/putlikehate")
-    public ModelAndView likehate(String boardnum,String likehate,HttpServletRequest request) {
-    	boolean putLH;
+    public ModelAndView likehate(String boardNum,String likeHate,HttpServletRequest request) {
     	String id = (String) request.getSession().getAttribute("id");
+    	System.out.println("id check : "+id);
+    	System.out.println("아이디로 등록된 라이크 체크"+boardService.likeIdCheck(boardNum,id));
     	
-    	if(boardService.likeIdCheck(boardnum,id)) {
-    		if(putLH=boardService.insertValue(boardnum,likehate,id)) {
-    			mv.addObject("like",boardService.getLike(boardnum));
-    			mv.addObject("hate",boardService.getHate(boardnum));
+    	    	
+    	
+    	if(boardService.likeIdCheck(boardNum,id)==0) {
+    		System.out.println("loginCheck시작 값이 0이 아닐 경우.");
+    		
+    		if(boardService.insertValue(boardNum,likeHate,id)==1) {
+    			mv.addObject("like",boardService.getLike(boardNum,likeHate));
+    			System.out.println("좋아요 개수" + boardService.getLike( boardNum,"like"));
+    			mv.addObject("hate",boardService.getHate(boardNum,likeHate));
+    			System.out.println("싫어요 개수"+boardService.getHate(boardNum,"hate"));
+    			
+    			System.out.println("성공적으로 좋아요싫어요 추가됨.");
     		}else{
     			mv.addObject("Result","등록중 문제가 생겼습니다.");    			
     			System.out.println("등록실패");
     		}    		
     	}else{    		
-    		mv.addObject("result",likehate + "를 이미 누르셨습니다.");
-    	}
-    	    	
-		return mv;    	
+    		mv.addObject("result",likeHate + "를 이미 누르셨습니다.");
+    		System.out.println("이미 등록함.");
+    	}    	    	
+    	return mv;    	
     	
     }
     

@@ -46,11 +46,23 @@
 	
 	<select id="searchBoardDetail" resultType="vo.BoardDetailVO">
 	select * from board_detail where board_detail_num = #{boardNum}
+	</select>	
+	
+	 <select id="likeIdCheck" resultType="int">
+	select count(*) from board_detail2 where boardNum=#{boardNum} and idlist=#{id}		
+	</select> 
+	
+	 <insert id="insertValue">
+	insert into board_detail2 values (#{boardNum},#{likeHate},#{id})
+	</insert> 
+	
+	<select id="getLike" resultType="Integer">
+	select count(*) from board_detail2 where boardnum=#{boardNum} and likehate=#{likeHate}	
 	</select>
 	
+	<select id="getHate" resultType="Integer">
+	select count(*) from board_detail2 where boardnum=#{boardNum} and likehate=#{likeHate}	
+	</select> 
 	
-	<!-- <select id="likeIdCheck" resultType="int">
-	
-	</select> -->
 	
 </mapper>

@@ -19,16 +19,16 @@ public TotalBoardVO searchBoardInfo(String boardNum);
 public BoardDetailVO searchBoardDetail(String boardNum);
 
 /** 좋아요기능-해당게시판에 등록된 아이디가 있는 지 확인 **/
-public int likeIdCheck(String boardnum, String id);
+public int likeIdCheck(@Param("boardNum") String boardNum,@Param("id") String id);
 
 /**좋아요,싫어요 추가 **/
-public int inserValue(String boardnum, String likehate, String id);
+public int insertValue(@Param("boardNum") int boardNum,@Param("likeHate") String likeHate,@Param("id") String id);
 
 /**등록된 좋아요 개수확인 **/
-public int getLike();
+public Integer getLike(@Param("boardNum") int boardNum,@Param("likeHate") String likeHate);
 
 /**등록된 싫어요 개수확인 **/
-public int getHate();
+public Integer getHate(@Param("boardNum") int boardNum,@Param("likeHate") String likeHate);
 
 
 

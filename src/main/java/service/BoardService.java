@@ -15,9 +15,10 @@ public interface BoardService {
 	public TotalBoardVO searchBoardInfo(String boardNum);
 	public BoardDetailVO searchBoardDetail(String boardNum);
 	
-	public boolean likeIdCheck(String boardnum, String id);
-	public boolean insertValue(String boardnum, String likehate, String id);
+	public int likeIdCheck(String boardNum, String id);
+	public int insertValue(String boardNum, String likeHate, String id);
 	
-	public int getLike (String boardnum);
-	public int getHate (String boardnum);
+
+	public Integer getLike(String boardNum, String likeHate);
+	public Integer getHate(String boardNum, String likeHate);
 }

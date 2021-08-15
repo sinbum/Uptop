@@ -63,10 +63,8 @@
 	}
 	function fn_board_paging(number){
 		//alert(number);
-		location.href="/board?requestpagenum="+number;		
-		
+		location.href="/board?requestpagenum="+number;
 	}
-	
 </script>
 
  

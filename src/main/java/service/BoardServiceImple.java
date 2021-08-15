@@ -2,8 +2,6 @@ package service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -53,43 +51,29 @@ public class BoardServiceImple implements BoardService{
 	}
 	
 	
-	
-	
-	
-	
-
 	@Override
-	public boolean likeIdCheck(String boardnum, String id) {
-		int result = mapper.likeIdCheck(boardnum,id);
-		
-		//라이크버튼을 눌렀을 경우 id값이 있을경우 등록된것으로 인지.
-		if (result == 1) {
-			return false;
-		}
-		return true;
+	public int likeIdCheck(String boardNum, String id) {	
+		return mapper.likeIdCheck(boardNum,id);
 	}
 
 	@Override
-	public boolean insertValue(String boardnum, String likehate, String id) {
-		int result = mapper.inserValue(boardnum,likehate,id);		
-		if(result == 1) {
-			//등록이 완료되면 true일 경우 성공
-			return true;
-		}
-		return false;
+	public int insertValue(String boardNum, String likeHate, String id) {			
+		return mapper.insertValue(Integer.parseInt(boardNum),likeHate,id);
 	}
 
+	
 	@Override
-	public int getLike(String boardnum) {
+	public Integer getLike(String boardNum,String likeHate) {
 		//라이크 개수 확인
-		int result = mapper.getLike();
+		Integer result = mapper.getLike(Integer.parseInt(boardNum) ,likeHate);
 		return result;
 	}
 
+	
 	@Override
-	public int getHate(String boardnum) {
+	public Integer getHate(String boardNum,String likeHate) {
 		//싫어요 개수 확인
-		int result = mapper.getHate();
+		Integer result = mapper.getHate(Integer.parseInt(boardNum),likeHate);
 		return result;
 	}
 
